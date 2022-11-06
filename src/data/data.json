@@ -4,7 +4,12 @@
     "name": "Logitech M330 silent",
     "price": 149.99,
     "type": "mysz",
-    "image": "/images/logitech-m330-silent.jpg",
+    "image": {
+      "url": "/images/logitech-m330-silent.jpg",
+      "height": 532,
+      "width": 600,
+      "alt": "czarna myszka logitech m330 silent"
+    },
     "availableAmount": 1
   },
   {
@@ -12,7 +17,12 @@
     "name": "Logitech MX Keys for mac",
     "price": 492,
     "type": "klawiatura",
-    "image": "/images/logitech-mx-keys-mac.jpg",
+    "image": {
+      "url": "/images/logitech-mx-keys-mac.jpg",
+      "height": 532,
+      "width": 600,
+      "alt": ""
+    },
     "availableAmount": 5
   },
   {
@@ -20,7 +30,12 @@
     "name": "Logitech MX Keys mini rose",
     "price": 499,
     "type": "klawiatura",
-    "image": "/images/logitech-mx-keys-mini-rose.jpg",
+    "image": {
+      "url": "/images/logitech-mx-keys-mini-rose.jpg",
+      "height": 532,
+      "width": 600,
+      "alt": ""
+    },
     "availableAmount": 2
   },
   {
@@ -28,7 +43,12 @@
     "name": "Logitech MX Keys Plus",
     "price": 599,
     "type": "klawiatura",
-    "image": "/images/logitech-mx-keys-plus.jpg",
+    "image": {
+      "url": "/images/logitech-mx-keys-plus.jpg",
+      "height": 532,
+      "width": 600,
+      "alt": ""
+    },
     "availableAmount": 5
   },
   {
@@ -36,7 +56,12 @@
     "name": "Logitech MX Keys",
     "price": 463,
     "type": "klawiatura",
-    "image": "/images/logitech-mx-keys.jpg",
+    "image": {
+      "url": "/images/logitech-mx-keys.jpg",
+      "height": 532,
+      "width": 600,
+      "alt": ""
+    },
     "availableAmount": 20
   },
   {
@@ -44,7 +69,12 @@
     "name": "Logitech MX Master 3S (grafitowy)",
     "price": 499,
     "type": "mysz",
-    "image": "/images/logitech-mx-master-3s-grafit.jpg",
+    "image": {
+      "url": "/images/logitech-mx-master-3s-grafit.jpg",
+      "height": 532,
+      "width": 600,
+      "alt": ""
+    },
     "availableAmount": 20
   },
   {
@@ -52,7 +82,12 @@
     "name": "Logitech MX Master 3S (jasnoszary)",
     "price": 499,
     "type": "mysz",
-    "image": "/images/logitech-mx-master-3s-szary.jpg",
+    "image": {
+      "url": "/images/logitech-mx-master-3s-szary.jpg",
+      "height": 532,
+      "width": 600,
+      "alt": ""
+    },
     "availableAmount": 20
   },
   {
@@ -60,7 +95,12 @@
     "name": "Logitech MX Mechanical Mini",
     "price": 639,
     "type": "klawiatura",
-    "image": "/images/logitech-mx-mechanical-mini.jpg",
+    "image": {
+      "url": "/images/logitech-mx-mechanical-mini.jpg",
+      "height": 532,
+      "width": 600,
+      "alt": ""
+    },
     "availableAmount": 0
   },
   {
@@ -68,7 +108,12 @@
     "name": "Logitech MX Mechanical",
     "price": 699,
     "type": "klawiatura",
-    "image": "/images/logitech-mx-mechanical.jpg",
+    "image": {
+      "url": "/images/logitech-mx-mechanical.jpg",
+      "height": 532,
+      "width": 600,
+      "alt": ""
+    },
     "availableAmount": 15
   },
   {
@@ -76,7 +121,12 @@
     "name": "Klawiatura Logitech MX Keys Mini (szary)",
     "price": 489,
     "type": "klawiatura",
-    "image": "/images/mx-keys-mini-mac.jpg",
+    "image": {
+      "url": "/images/mx-keys-mini-mac.jpg",
+      "height": 532,
+      "width": 600,
+      "alt": ""
+    },
     "availableAmount": 3
   }
 ]
