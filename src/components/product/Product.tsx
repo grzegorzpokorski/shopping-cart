@@ -12,14 +12,14 @@ export const Product = ({
   availableAmount,
 }: ProductType) => {
   return (
-    <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 p-4">
+    <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 p-4 group">
       <figure className="w-full h-80 max-h-80 overflow-hidden relative block">
         <img
           src={`${siteUrl}${image.url}`}
           alt={image.alt}
           height={image.height}
           width={image.width}
-          className="object-contain object-center w-full h-full"
+          className="object-contain object-center w-full h-full group-hover:scale-[1.025] transition duration-300"
         />
       </figure>
       <div className="flex flex-col gap-4">
