@@ -8,7 +8,7 @@
       "url": "/images/logitech-m330-silent.jpg",
       "height": 532,
       "width": 600,
-      "alt": "czarna myszka logitech m330 silent"
+      "alt": "czarna myszka logitech m330 silent ukazana z góry"
     },
     "availableAmount": 1
   },
@@ -19,9 +19,9 @@
     "type": "klawiatura",
     "image": {
       "url": "/images/logitech-mx-keys-mac.jpg",
-      "height": 532,
-      "width": 600,
-      "alt": ""
+      "height": 514,
+      "width": 580,
+      "alt": "szaro-grafitowa klawiatura logitech mx keys mac ukazana z profilu"
     },
     "availableAmount": 5
   },
@@ -32,9 +32,9 @@
     "type": "klawiatura",
     "image": {
       "url": "/images/logitech-mx-keys-mini-rose.jpg",
-      "height": 532,
-      "width": 600,
-      "alt": ""
+      "height": 514,
+      "width": 580,
+      "alt": "różowa klawiatura Logitech MX Keys mini rose ukazana pod kątem"
     },
     "availableAmount": 2
   },
@@ -45,9 +45,9 @@
     "type": "klawiatura",
     "image": {
       "url": "/images/logitech-mx-keys-plus.jpg",
-      "height": 532,
-      "width": 600,
-      "alt": ""
+      "height": 514,
+      "width": 580,
+      "alt": "klawiatura Logitech MX Keys Plus ukazana pod katem z podkładką na nadgarstki i nadajnikem"
     },
     "availableAmount": 5
   },
@@ -58,9 +58,9 @@
     "type": "klawiatura",
     "image": {
       "url": "/images/logitech-mx-keys.jpg",
-      "height": 532,
-      "width": 600,
-      "alt": ""
+      "height": 514,
+      "width": 580,
+      "alt": "klawiatura Logitech MX Keys ukazana pod kątem z nadajnikiem"
     },
     "availableAmount": 20
   },
@@ -71,9 +71,9 @@
     "type": "mysz",
     "image": {
       "url": "/images/logitech-mx-master-3s-grafit.jpg",
-      "height": 532,
-      "width": 600,
-      "alt": ""
+      "height": 514,
+      "width": 580,
+      "alt": "mysz Logitech mx master 3s w kolorze grafitowym o ergonomicznym kształcie ukazana od góry"
     },
     "availableAmount": 20
   },
@@ -84,9 +84,9 @@
     "type": "mysz",
     "image": {
       "url": "/images/logitech-mx-master-3s-szary.jpg",
-      "height": 532,
-      "width": 600,
-      "alt": ""
+      "height": 514,
+      "width": 580,
+      "alt": "mysz Logitech mx master 3s w kolorze jasnoszarym o ergonomicznym kształcie ukazana od góry"
     },
     "availableAmount": 20
   },
@@ -97,9 +97,9 @@
     "type": "klawiatura",
     "image": {
       "url": "/images/logitech-mx-mechanical-mini.jpg",
-      "height": 532,
-      "width": 600,
-      "alt": ""
+      "height": 514,
+      "width": 580,
+      "alt": "grafitowa klawiatura Logitech mx mechanical mini ukazana pod katem z nadajnikiem"
     },
     "availableAmount": 0
   },
@@ -110,9 +110,9 @@
     "type": "klawiatura",
     "image": {
       "url": "/images/logitech-mx-mechanical.jpg",
-      "height": 532,
-      "width": 600,
-      "alt": ""
+      "height": 514,
+      "width": 580,
+      "alt": "grafitowa klawiatura Logitech mx mechanical ukazana pod kątem z nadajnikiem"
     },
     "availableAmount": 15
   },
@@ -123,9 +123,9 @@
     "type": "klawiatura",
     "image": {
       "url": "/images/mx-keys-mini-mac.jpg",
-      "height": 532,
-      "width": 600,
-      "alt": ""
+      "height": 514,
+      "width": 580,
+      "alt": "jasnoszara klawiatura Logitech mx keys mini dla urządzeń mac ukazana pod kątem"
     },
     "availableAmount": 3
   }
