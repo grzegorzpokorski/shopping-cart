@@ -6,7 +6,7 @@ export const ProductsList = () => {
   const { products } = useProducts();
 
   return (
-    <ul className="grid">
+    <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 my-4">
       {products.map((product) => (
         <Product key={product.id} {...product} />
       ))}
