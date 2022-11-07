@@ -1,6 +1,8 @@
 import React from "react";
 import { ProductType } from "../../context/ProductsContext";
 import { siteUrl } from "../../utils/getSiteUrl";
+import { formatCurrency } from "../../utils/formatCurrency";
+import { Button } from "../button/Button";
 
 export const Product = ({
   name,
@@ -10,7 +12,7 @@ export const Product = ({
   availableAmount,
 }: ProductType) => {
   return (
-    <li className="flex flex-col gap-4 border-2 border-zinc-300 rounded-md p-4 hover:border-zinc-700 transition-colors duration-300">
+    <li className="flex flex-col gap-4 justify-between border-2 border-zinc-300 rounded-md p-4 hover:border-zinc-700 transition-colors duration-300">
       <figure className="w-full h-80 max-h-80 overflow-hidden relative block">
         <img
           src={`${siteUrl}${image.url}`}
@@ -20,12 +22,18 @@ export const Product = ({
           className="object-contain object-center w-full h-full"
         />
       </figure>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-col gap-4">
         <div>
           <h3 className="text-md lg:text-xl font-bold">{name}</h3>
           <p>{type}</p>
         </div>
-        <p>{price}</p>
+        <div className="flex justify-between items-center">
+          <p>{formatCurrency(price)}</p>
+          <Button
+            text={availableAmount ? "Dodaj do koszyka" : "Brak towaru"}
+            disabled={Boolean(!availableAmount)}
+          />
+        </div>
       </div>
     </li>
   );
