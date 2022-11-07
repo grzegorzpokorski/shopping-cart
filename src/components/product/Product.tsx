@@ -1,5 +1,6 @@
 import React from "react";
 import { ProductType } from "../../context/ProductsContext";
+import { siteUrl } from "../../utils/getSiteUrl";
 
 export const Product = ({
   name,
@@ -8,11 +9,12 @@ export const Product = ({
   image,
   availableAmount,
 }: ProductType) => {
+  console.log(image);
   return (
     <li>
       <figure>
         <img
-          src={image.url}
+          src={`${siteUrl}${image.url}`}
           alt={image.alt}
           height={image.height}
           width={image.width}
