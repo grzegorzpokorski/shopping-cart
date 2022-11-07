@@ -1,6 +1,6 @@
 import React from "react";
-import { useProducts } from "../../../context/ProductsContext";
-import { Product } from "../../molecules/product/Product";
+import { useProducts } from "../../context/ProductsContext";
+import { Product } from "../product/Product";
 
 export const ProductsList = () => {
   const { products } = useProducts();
