@@ -9,7 +9,6 @@ export const Product = ({
   image,
   availableAmount,
 }: ProductType) => {
-  console.log(image);
   return (
     <li>
       <figure>
