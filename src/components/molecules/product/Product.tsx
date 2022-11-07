@@ -1,6 +1,6 @@
 import React from "react";
-import { ProductType } from "../../context/ProductsContext";
-import { siteUrl } from "../../utils/getSiteUrl";
+import { ProductType } from "../../../context/ProductsContext";
+import { siteUrl } from "../../../utils/getSiteUrl";
 
 export const Product = ({
   name,

@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductsList } from "./components/productsList/ProductsList";
+import { ProductsList } from "./components/organisms/productsList/ProductsList";
 import { ProductsProvider } from "./context/ProductsContext";
 
 function App() {
