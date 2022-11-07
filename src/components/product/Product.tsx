@@ -12,7 +12,7 @@ export const Product = ({
   availableAmount,
 }: ProductType) => {
   return (
-    <li className="flex flex-col gap-4 justify-between border-2 border-zinc-300 rounded-md p-4 hover:border-zinc-700 transition-colors duration-300">
+    <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 p-4">
       <figure className="w-full h-80 max-h-80 overflow-hidden relative block">
         <img
           src={`${siteUrl}${image.url}`}
