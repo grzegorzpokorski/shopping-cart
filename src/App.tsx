@@ -1,14 +1,12 @@
 import React from "react";
-import { ProductsList } from "./components/organisms/productsList/ProductsList";
-import { ProductsProvider } from "./context/ProductsContext";
+import { Routes, Route } from "react-router-dom";
+import { Home } from "./pages/Home";
 
 function App() {
   return (
-    <ProductsProvider>
-      <>
-        <ProductsList />
-      </>
-    </ProductsProvider>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
   );
 }
 
