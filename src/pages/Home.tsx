@@ -1,14 +1,14 @@
 import React from "react";
 import { Layout } from "../components/layout/Layout";
 import { ProductsList } from "../components/productsList/ProductsList";
-import { ProductsProvider } from "../context/ProductsContext";
+import { ShoppingCartProvider } from "../context/ShoppingCartContext";
 
 export const Home = () => {
   return (
-    <ProductsProvider>
+    <ShoppingCartProvider>
       <Layout>
         <ProductsList />
       </Layout>
-    </ProductsProvider>
+    </ShoppingCartProvider>
   );
 };

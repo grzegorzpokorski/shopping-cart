@@ -1,16 +1,22 @@
 import React from "react";
-import { ProductType } from "../../context/ProductsContext";
 import { siteUrl } from "../../utils/getSiteUrl";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { Button } from "../button/Button";
+import {
+  ProductType,
+  useShoppingCartContext,
+} from "../../context/ShoppingCartContext";
 
 export const Product = ({
+  id,
   name,
   price,
   type,
   image,
   availableAmount,
 }: ProductType) => {
+  const { shoppingCartState, shoppingCartDispatch } = useShoppingCartContext();
+
   return (
     <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 bg-white p-4 group">
       <figure className="w-full h-80 max-h-80 overflow-hidden relative block">
@@ -29,10 +35,24 @@ export const Product = ({
         </div>
         <div className="flex justify-between items-center">
           <p>{formatCurrency(price)}</p>
-          <Button
-            text={availableAmount ? "Dodaj do koszyka" : "Brak towaru"}
-            disabled={Boolean(!availableAmount)}
-          />
+          {shoppingCartState.inCart.includes(id) ? (
+            <Button
+              text="Zobacz w koszyku"
+              onClick={() => shoppingCartDispatch({ type: "toggle_cart" })}
+            />
+          ) : (
+            <Button
+              text={availableAmount ? "Dodaj do koszyka" : "Brak towaru"}
+              disabled={Boolean(!availableAmount)}
+              onClick={() => {
+                shoppingCartDispatch({
+                  type: "add_product_to_cart",
+                  id: id,
+                });
+                shoppingCartDispatch({ type: "increment_cart_counter" });
+              }}
+            />
+          )}
         </div>
       </div>
     </li>
