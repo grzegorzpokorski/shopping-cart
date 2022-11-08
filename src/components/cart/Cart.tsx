@@ -10,12 +10,6 @@ export const Cart = ({ cartIsOpen }: CartProps) => {
     <>
       <div
         className={cn(
-          "fixed inset-0 bg-black top-16 lg:top-20 opacity-30 transition",
-          { "hidden opacity-0": !cartIsOpen },
-        )}
-      ></div>
-      <div
-        className={cn(
           "fixed right-0 bottom-0 z-10 max-w-xs md:max-w-md lg:max-w-lg w-full p-6 md:p-8 flex flex-col gap-6 overflow-y-auto bg-white shadow-md transition duration-300 ease-in-out top-16 lg:top-20 border-t-2 border-zinc-200",
           { "translate-x-0": cartIsOpen },
           { "translate-x-full": !cartIsOpen },
