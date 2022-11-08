@@ -9,11 +9,15 @@ type LinkProps = {
 export const Link = ({ href, children, ...rest }: LinkProps) => {
   const isInternal = href && (href.startsWith("#") || href.startsWith("/"));
 
-  return isInternal ? (
-    <ReactLink to={href} {...rest}>
-      {children}
-    </ReactLink>
-  ) : (
+  if (isInternal) {
+    return (
+      <ReactLink to={href} {...rest}>
+        {children}
+      </ReactLink>
+    );
+  }
+
+  return (
     <a href={href} rel="noopener noreferrer" target="_blank" {...rest}>
       {children}
     </a>
