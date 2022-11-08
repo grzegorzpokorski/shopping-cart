@@ -66,6 +66,10 @@ export const ShoppingCartProvider = ({
     appState,
   );
 
+  useEffect(() => {
+    setAppState(shoppingCartState);
+  }, [setAppState, shoppingCartState]);
+
   return (
     <ShoppingCartContext.Provider
       value={{ shoppingCartState, shoppingCartDispatch }}
