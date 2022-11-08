@@ -7,9 +7,15 @@ type LinkProps = {
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export const Link = ({ href, children, ...rest }: LinkProps) => {
-  return (
+  const isInternal = href && (href.startsWith("#") || href.startsWith("/"));
+
+  return isInternal ? (
     <ReactLink to={href} {...rest}>
       {children}
     </ReactLink>
+  ) : (
+    <a href={href} rel="noopener noreferrer" target="_blank" {...rest}>
+      {children}
+    </a>
   );
 };
