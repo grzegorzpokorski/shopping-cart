@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { Cart } from "../cart/Cart";
 import { CartTrigger } from "../cartTrigger/CartTrigger";
 import { Logo } from "../logo/Logo";
 
@@ -24,7 +25,7 @@ export const Navbar = () => {
         <Logo content="Shop" isHome={isHome} isTitle={isHome} />
         <div>
           <CartTrigger cartIsOpen={cartIsOpen} toggleCart={toggleCart} />
-          {/* <MainMenu mobileMenuIsOpen={mobileMenuIsOpen}/> */}
+          <Cart cartIsOpen={cartIsOpen} />
         </div>
       </section>
     </nav>
