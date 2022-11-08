@@ -12,7 +12,7 @@ export const Product = ({
   availableAmount,
 }: ProductType) => {
   return (
-    <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 p-4 group">
+    <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 bg-white p-4 group">
       <figure className="w-full h-80 max-h-80 overflow-hidden relative block">
         <img
           src={`${siteUrl}${image.url}`}
