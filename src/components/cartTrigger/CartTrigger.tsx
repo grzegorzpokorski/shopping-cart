@@ -16,7 +16,7 @@ export const CartTrigger = ({ cartOpen, toggleCart }: HamburgerProps) => {
   return (
     <button
       id="cartTrigger"
-      className="relative h-8 w-8 flex items-center justify-center text-2xl hover:opacity-70 transition"
+      className="relative h-8 w-8 flex items-center justify-center text-2xl hover:opacity-80 transition"
       aria-label={`${
         cartOpen ? ariaLabelForOpened : ariaLabelForClosed
       } koszyk`}
@@ -28,7 +28,7 @@ export const CartTrigger = ({ cartOpen, toggleCart }: HamburgerProps) => {
         <>
           <FaShoppingBasket />
           <span className="absolute inset-0 object-right-top mt-0.5 -mr-6">
-            <div className="inline-flex items-center px-1.5 border-2 border-white rounded-full text-xs font-semibold leading-4 bg-red-500 text-white">
+            <div className="inline-flex items-center px-1.5 border-2 border-white rounded-full text-xs font-semibold leading-4 bg-indigo-600 text-white">
               {shoppingCartState.cartCount}
             </div>
           </span>
