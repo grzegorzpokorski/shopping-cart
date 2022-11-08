@@ -39,6 +39,7 @@ export const Product = ({
             <Button
               text="Zobacz w koszyku"
               onClick={() => shoppingCartDispatch({ type: "toggle_cart" })}
+              variant="indigo"
             />
           ) : (
             <Button
