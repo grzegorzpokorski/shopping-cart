@@ -38,7 +38,7 @@ export const Navbar = () => {
         </div>
         <div
           className={cn(
-            "fixed inset-0 bg-black top-16 lg:top-20 opacity-30 transition",
+            "fixed inset-0 bg-black top-16 lg:top-20 opacity-50 transition",
             { "hidden opacity-0": !cartOpen },
           )}
         ></div>
