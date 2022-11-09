@@ -17,8 +17,12 @@ export const Product = ({
 }: ProductType) => {
   const { shoppingCartState, shoppingCartDispatch } = useShoppingCartContext();
 
+  const ProductIsInCart = shoppingCartState.inCart
+    .map((p) => p.id)
+    .includes(id);
+
   return (
-    <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 bg-white p-4 group">
+    <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 bg-white p-4 rounded group">
       <figure className="w-full h-80 max-h-80 overflow-hidden relative block">
         <img
           src={`${siteUrl}${image.url}`}
@@ -35,24 +39,25 @@ export const Product = ({
         </div>
         <div className="flex justify-between items-center">
           <p>{formatCurrency(price)}</p>
-          {shoppingCartState.inCart.includes(id) ? (
+          {ProductIsInCart ? (
             <Button
-              text="Zobacz w koszyku"
               onClick={() => shoppingCartDispatch({ type: "toggle_cart" })}
               variant="indigo"
-            />
+            >
+              Zobacz w koszyku
+            </Button>
           ) : (
             <Button
-              text={availableAmount ? "Dodaj do koszyka" : "Brak towaru"}
               disabled={Boolean(!availableAmount)}
-              onClick={() => {
+              onClick={() =>
                 shoppingCartDispatch({
                   type: "add_product_to_cart",
                   id: id,
-                });
-                shoppingCartDispatch({ type: "increment_cart_counter" });
-              }}
-            />
+                })
+              }
+            >
+              {availableAmount ? "Dodaj do koszyka" : "Brak towaru"}
+            </Button>
           )}
         </div>
       </div>
