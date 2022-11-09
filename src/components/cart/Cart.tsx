@@ -1,6 +1,8 @@
 import React from "react";
 import cn from "classnames";
 import { useShoppingCartContext } from "../../context/ShoppingCartContext";
+import { CartList } from "../cartList/CartList";
+import { EmptyCart } from "../emptyCart/EmptyCart";
 
 type CartProps = {
   cartOpen: boolean;
@@ -8,8 +10,6 @@ type CartProps = {
 
 export const Cart = ({ cartOpen }: CartProps) => {
   const { shoppingCartState } = useShoppingCartContext();
-
-  console.log(shoppingCartState.inCart);
 
   return (
     <>
@@ -20,42 +20,16 @@ export const Cart = ({ cartOpen }: CartProps) => {
           { "translate-x-full": !cartOpen },
         )}
       >
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-          recusandae itaque cumque sunt aspernatur odio incidunt libero
-          similique laudantium culpa ut alias consequatur, assumenda placeat
-          tenetur obcaecati perferendis officia explicabo?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-          recusandae itaque cumque sunt aspernatur odio incidunt libero
-          similique laudantium culpa ut alias consequatur, assumenda placeat
-          tenetur obcaecati perferendis officia explicabo?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-          recusandae itaque cumque sunt aspernatur odio incidunt libero
-          similique laudantium culpa ut alias consequatur, assumenda placeat
-          tenetur obcaecati perferendis officia explicabo?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-          recusandae itaque cumque sunt aspernatur odio incidunt libero
-          similique laudantium culpa ut alias consequatur, assumenda placeat
-          tenetur obcaecati perferendis officia explicabo?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-          recusandae itaque cumque sunt aspernatur odio incidunt libero
-          similique laudantium culpa ut alias consequatur, assumenda placeat
-          tenetur obcaecati perferendis officia explicabo?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-          recusandae itaque cumque sunt aspernatur odio incidunt libero
-          similique laudantium culpa ut alias consequatur, assumenda placeat
-          tenetur obcaecati perferendis officia explicabo?
-        </p>
+        <h3 className="text-lg font-bold text-center mb-2 border-b-2 pb-6 md:pb-8">
+          {shoppingCartState.inCart.length > 0
+            ? "Zawartość koszyka"
+            : "Twoj koszyk jest pusty"}
+        </h3>
+        {shoppingCartState.inCart.length > 0 ? (
+          <CartList products={shoppingCartState.inCart} />
+        ) : (
+          <EmptyCart />
+        )}
       </div>
     </>
   );
