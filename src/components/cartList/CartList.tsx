@@ -69,7 +69,7 @@ export const CartList = ({ products }: CartListProps) => {
                 {formatCurrency(product.price * product.qty)}
               </span>
               <br />
-              {product.qty > 0
+              {product.qty > 1
                 ? `za sztukę ${formatCurrency(product.price)}`
                 : null}
             </p>
