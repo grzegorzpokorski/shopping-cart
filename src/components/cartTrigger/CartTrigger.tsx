@@ -23,10 +23,10 @@ export const CartTrigger = ({ cartOpen, toggleCart }: HamburgerProps) => {
       onClick={toggleCart}
     >
       {cartOpen ? (
-        <FaPlus className="rotate-45" />
+        <FaPlus className="rotate-45" aria-hidden="true" />
       ) : (
         <>
-          <FaShoppingBasket />
+          <FaShoppingBasket aria-hidden="true" />
           <span className="absolute inset-0 object-right-top mt-0.5 -mr-6">
             <div className="inline-flex items-center px-1.5 border-2 border-white rounded-full text-xs font-semibold leading-4 bg-indigo-600 text-white">
               {shoppingCartState.cartCount}
