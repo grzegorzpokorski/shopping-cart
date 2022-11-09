@@ -22,9 +22,13 @@ export type ProductType = {
   availableAmount: number;
 };
 
+export type ProductInCart = ProductType & {
+  qty: number;
+};
+
 type ShoppingCartState = {
   products: ProductType[];
-  inCart: number[];
+  inCart: ProductInCart[];
   cartCount: number;
   cartOpen: boolean;
 };
@@ -90,7 +94,6 @@ type ShoppingCartActionType =
       type: "remove_product_from_cart";
       id: number;
     }
-  | { type: "increment_cart_counter" }
   | {
       type: "toggle_cart";
     };
@@ -103,12 +106,24 @@ const shoppingCartReducer = (
     case "add_product_to_cart":
       return {
         ...prevState,
-        inCart: [...prevState.inCart, action.id],
+        cartCount: prevState.cartCount++,
+        inCart: [
+          ...prevState.inCart,
+          {
+            ...(prevState.products.find(
+              (p) => p.id == action.id,
+            ) as ProductType),
+            qty: 1,
+          },
+        ],
       };
-    case "increment_cart_counter":
+    case "remove_product_from_cart":
       return {
         ...prevState,
-        cartCount: prevState.cartCount + 1,
+        cartCount:
+          prevState.cartCount -
+          prevState.inCart.filter((p) => p.id === action.id)[0].qty,
+        inCart: prevState.inCart.filter((p) => p.id !== action.id),
       };
     case "toggle_cart":
       return {
