@@ -6,7 +6,7 @@ export const EmptyCart = () => {
   const { shoppingCartDispatch } = useShoppingCartContext();
 
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center text-center gap-4">
       <p>Dodaj coś do mnie, aby mnie uszczęśliwić ;)</p>
       <Button onClick={() => shoppingCartDispatch({ type: "toggle_cart" })}>
         Kontynuj zakupy
