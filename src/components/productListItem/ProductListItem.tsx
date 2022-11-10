@@ -7,7 +7,7 @@ import {
   useShoppingCartContext,
 } from "../../context/ShoppingCartContext";
 
-export const Product = ({
+export const ProductListItem = ({
   id,
   name,
   price,
