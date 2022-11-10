@@ -26,7 +26,7 @@ export type ProductInCart = ProductType & {
   qty: number;
 };
 
-type ShoppingCartState = {
+type ShoppingCartStateType = {
   products: ProductType[];
   inCart: ProductInCart[];
   cartCount: number;
@@ -34,7 +34,7 @@ type ShoppingCartState = {
 };
 
 type ShoppingCartContextType = {
-  shoppingCartState: ShoppingCartState;
+  shoppingCartState: ShoppingCartStateType;
   shoppingCartDispatch: React.Dispatch<ShoppingCartActionType>;
 };
 
@@ -53,7 +53,7 @@ type ShoppingCartProviderProps = {
 export const ShoppingCartProvider = ({
   children,
 }: ShoppingCartProviderProps) => {
-  const shoppingCartInitialState: ShoppingCartState = {
+  const shoppingCartInitialState: ShoppingCartStateType = {
     products: data,
     inCart: [],
     cartCount: 0,
@@ -99,7 +99,7 @@ type ShoppingCartActionType =
     };
 
 const shoppingCartReducer = (
-  prevState: ShoppingCartState,
+  prevState: ShoppingCartStateType,
   action: ShoppingCartActionType,
 ) => {
   switch (action.type) {
