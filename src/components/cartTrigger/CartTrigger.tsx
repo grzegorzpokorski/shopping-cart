@@ -3,12 +3,12 @@ import { FaShoppingBasket, FaPlus } from "react-icons/fa";
 import { useShoppingCartContext } from "../../context/ShoppingCartContext";
 import { getShoppingCartProductsCount } from "../../utils/getShoppingCartProductsCount";
 
-type HamburgerProps = {
+type CartTriggerType = {
   cartOpen: boolean;
   toggleCart: () => void;
 };
 
-export const CartTrigger = ({ cartOpen, toggleCart }: HamburgerProps) => {
+export const CartTrigger = ({ cartOpen, toggleCart }: CartTriggerType) => {
   const ariaLabelForOpened = "Zamknij";
   const ariaLabelForClosed = "Otwórz";
 
