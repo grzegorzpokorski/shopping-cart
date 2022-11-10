@@ -29,7 +29,7 @@ export const Button = ({
     <button
       className={cn(
         variants[variant],
-        "disabled:cursor-not-allowed transition-colors rounded",
+        "text-center disabled:cursor-not-allowed transition-colors rounded",
       )}
       disabled={disabled}
       onClick={onClick}
