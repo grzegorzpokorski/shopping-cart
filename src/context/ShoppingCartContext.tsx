@@ -84,36 +84,33 @@ export const ShoppingCartProvider = ({
 // reducer:
 
 type ShoppingCartActionType =
-  | {
-      type: "add_product_to_cart";
-      id: number;
-    }
-  | {
-      type: "remove_product_from_cart";
-      id: number;
-    }
-  | {
-      type: "toggle_cart";
-    };
+  | { type: "add_product_to_cart"; id: number }
+  | { type: "remove_product_from_cart"; id: number }
+  | { type: "increase_product_qty_in_cart"; product: ProductInCart }
+  | { type: "toggle_cart" };
 
 const shoppingCartReducer = (
   prevState: ShoppingCartStateType,
   action: ShoppingCartActionType,
 ) => {
   switch (action.type) {
-    case "add_product_to_cart":
-      return {
-        ...prevState,
-        inCart: [
-          ...prevState.inCart,
-          {
-            ...(prevState.products.find(
-              (p) => p.id == action.id,
-            ) as ProductType),
-            qty: 1,
-          },
-        ],
-      };
+    case "add_product_to_cart": {
+      const product = prevState.products.find((p) => p.id == action.id);
+
+      if (product) {
+        return {
+          ...prevState,
+          inCart: [
+            ...prevState.inCart,
+            {
+              ...product,
+              qty: 1,
+            },
+          ],
+        };
+      }
+      return prevState;
+    }
     case "remove_product_from_cart":
       return {
         ...prevState,

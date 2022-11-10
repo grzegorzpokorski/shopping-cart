@@ -52,7 +52,7 @@ export const Product = ({
               onClick={() =>
                 shoppingCartDispatch({
                   type: "add_product_to_cart",
-                  id: id,
+                  id,
                 })
               }
             >
