@@ -3,6 +3,7 @@ import cn from "classnames";
 import { useShoppingCartContext } from "../../context/ShoppingCartContext";
 import { CartList } from "../cartList/CartList";
 import { EmptyCart } from "../emptyCart/EmptyCart";
+import { CartSummary } from "../cartSummary/CartSummary";
 
 type CartProps = {
   cartOpen: boolean;
@@ -26,7 +27,10 @@ export const Cart = ({ cartOpen }: CartProps) => {
             : "Twoj koszyk jest pusty"}
         </h3>
         {shoppingCartState.inCart.length > 0 ? (
-          <CartList products={shoppingCartState.inCart} />
+          <>
+            <CartList products={shoppingCartState.inCart} />
+            <CartSummary />
+          </>
         ) : (
           <EmptyCart />
         )}
