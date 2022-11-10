@@ -29,7 +29,6 @@ export type ProductInCart = ProductType & {
 type ShoppingCartStateType = {
   products: ProductType[];
   inCart: ProductInCart[];
-  cartCount: number;
   cartOpen: boolean;
 };
 
@@ -56,7 +55,6 @@ export const ShoppingCartProvider = ({
   const shoppingCartInitialState: ShoppingCartStateType = {
     products: data,
     inCart: [],
-    cartCount: 0,
     cartOpen: false,
   };
 
@@ -106,7 +104,6 @@ const shoppingCartReducer = (
     case "add_product_to_cart":
       return {
         ...prevState,
-        cartCount: prevState.cartCount++,
         inCart: [
           ...prevState.inCart,
           {
@@ -120,9 +117,6 @@ const shoppingCartReducer = (
     case "remove_product_from_cart":
       return {
         ...prevState,
-        cartCount:
-          prevState.cartCount -
-          prevState.inCart.filter((p) => p.id === action.id)[0].qty,
         inCart: prevState.inCart.filter((p) => p.id !== action.id),
       };
     case "toggle_cart":

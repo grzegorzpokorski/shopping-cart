@@ -1,6 +1,7 @@
 import React from "react";
 import { FaShoppingBasket, FaPlus } from "react-icons/fa";
 import { useShoppingCartContext } from "../../context/ShoppingCartContext";
+import { getShoppingCartProductsCount } from "../../utils/getShoppingCartProductsCount";
 
 type HamburgerProps = {
   cartOpen: boolean;
@@ -29,7 +30,7 @@ export const CartTrigger = ({ cartOpen, toggleCart }: HamburgerProps) => {
           <FaShoppingBasket aria-hidden="true" />
           <span className="absolute inset-0 object-right-top mt-0.5 -mr-6">
             <div className="inline-flex items-center px-1.5 border-2 border-white rounded-full text-xs font-semibold leading-4 bg-indigo-600 text-white">
-              {shoppingCartState.cartCount}
+              {getShoppingCartProductsCount(shoppingCartState.inCart)}
             </div>
           </span>
         </>
