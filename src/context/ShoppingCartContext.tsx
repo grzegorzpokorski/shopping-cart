@@ -122,21 +122,23 @@ const shoppingCartReducer = (
         ...prevState,
         inCart: [
           ...prevState.inCart.map((item) =>
-            item.id === action.id ? { ...item, qty: item.qty++ } : { ...item },
+            item.id === action.id
+              ? { ...item, qty: item.qty + 1 }
+              : { ...item },
           ),
         ],
       };
-    case "decrease_product_qty_in_cart": {
-      console.log(action.id);
+    case "decrease_product_qty_in_cart":
       return {
         ...prevState,
         inCart: [
           ...prevState.inCart.map((item) =>
-            item.id === action.id ? { ...item, qty: item.qty-- } : { ...item },
+            item.id === action.id
+              ? { ...item, qty: item.qty - 1 }
+              : { ...item },
           ),
         ],
       };
-    }
     case "toggle_cart":
       return {
         ...prevState,
