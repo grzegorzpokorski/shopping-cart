@@ -86,7 +86,8 @@ export const ShoppingCartProvider = ({
 type ShoppingCartActionType =
   | { type: "add_product_to_cart"; id: number }
   | { type: "remove_product_from_cart"; id: number }
-  | { type: "increase_product_qty_in_cart"; product: ProductInCart }
+  | { type: "increase_product_qty_in_cart"; id: number }
+  | { type: "decrease_product_qty_in_cart"; id: number }
   | { type: "toggle_cart" };
 
 const shoppingCartReducer = (
@@ -116,6 +117,26 @@ const shoppingCartReducer = (
         ...prevState,
         inCart: prevState.inCart.filter((p) => p.id !== action.id),
       };
+    case "increase_product_qty_in_cart":
+      return {
+        ...prevState,
+        inCart: [
+          ...prevState.inCart.map((item) =>
+            item.id === action.id ? { ...item, qty: item.qty++ } : { ...item },
+          ),
+        ],
+      };
+    case "decrease_product_qty_in_cart": {
+      console.log(action.id);
+      return {
+        ...prevState,
+        inCart: [
+          ...prevState.inCart.map((item) =>
+            item.id === action.id ? { ...item, qty: item.qty-- } : { ...item },
+          ),
+        ],
+      };
+    }
     case "toggle_cart":
       return {
         ...prevState,
