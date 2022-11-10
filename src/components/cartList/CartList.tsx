@@ -48,7 +48,16 @@ export const CartList = ({ products }: CartListProps) => {
           </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1">
-              <Button variant="cart" disabled={product.qty === 1}>
+              <Button
+                variant="cart"
+                disabled={product.qty === 1}
+                onClick={() =>
+                  shoppingCartDispatch({
+                    type: "decrease_product_qty_in_cart",
+                    id: product.id,
+                  })
+                }
+              >
                 <span className="sr-only">zmniejsz</span>
                 <FaMinus className="text-center" />
               </Button>
@@ -59,7 +68,18 @@ export const CartList = ({ products }: CartListProps) => {
                   z {product.availableAmount} dostępnych
                 </span>
               </span>
-              <Button variant="cart" disabled={product.availableAmount === 1}>
+              <Button
+                variant="cart"
+                disabled={
+                  product.qty === product.availableAmount ? true : false
+                }
+                onClick={() =>
+                  shoppingCartDispatch({
+                    type: "increase_product_qty_in_cart",
+                    id: product.id,
+                  })
+                }
+              >
                 <span className="sr-only">zwiększ</span>
                 <FaPlus className="text-center block" />
               </Button>
