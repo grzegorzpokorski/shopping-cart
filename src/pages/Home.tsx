@@ -7,9 +7,9 @@ export const Home = () => {
   return (
     <ShoppingCartProvider>
       <Layout>
-        <>
+        <div className="py-12">
           <ProductsList />
-        </>
+        </div>
       </Layout>
     </ShoppingCartProvider>
   );
