@@ -32,7 +32,7 @@ export const CartSummary = () => {
         </p>
       </div>
       <div className="mt-6 flex flex-col justify-center text-center">
-        <Button variant="indigo">Potwierdź zakup</Button>
+        <Button variant="indigo">Złóż zamówienie</Button>
       </div>
       <div className="mt-6 flex justify-center text-center text-sm">
         <p>
