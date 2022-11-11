@@ -68,11 +68,8 @@ export const CartListItem = ({
             <FaMinus className="text-center" />
           </Button>
           <span className="px-2 text-sm">
-            {qty}{" "}
-            <span className="hidden md:inline">
-              {" "}
-              z {availableAmount} dostępnych
-            </span>
+            {qty} z {availableAmount}
+            <span className="hidden md:inline"> dostępnych</span>
           </span>
           <Button
             variant="quantity_button"
