@@ -16,6 +16,7 @@ export const MainMenu = ({ items }: MainMenuProps) => {
         <li key={item.label}>
           <Link href={item.href} className="flex flex-row items-center gap-2">
             <span className="hidden md:inline">{item.label}</span>
+            <span className="sr-only md:hidden">{item.label}</span>
             <span className="flex items-center justify-center text-xl inline md:hidden">
               {item.icon}
             </span>
