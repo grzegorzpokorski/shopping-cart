@@ -1,12 +1,12 @@
 import React from "react";
 import {
-  ProductInCart,
+  ProductInCartType,
   useShoppingCartContext,
 } from "../../../context/ShoppingCartContext";
 import { CartListItem } from "../../molecules/cartListItem/CartListItem";
 
 type CartListProps = {
-  products: ProductInCart[];
+  products: ProductInCartType[];
 };
 
 export const CartList = ({ products }: CartListProps) => {

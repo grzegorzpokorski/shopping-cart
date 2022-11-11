@@ -1,11 +1,15 @@
-import { ShoppingCartStateType } from "../context/ShoppingCartContext";
+import {
+  ShoppingCartStateType,
+  SortByType,
+} from "../context/ShoppingCartContext";
 
 export type ShoppingCartActionType =
   | { type: "add_product_to_cart"; id: number }
   | { type: "remove_product_from_cart"; id: number }
   | { type: "increase_product_qty_in_cart"; id: number }
   | { type: "decrease_product_qty_in_cart"; id: number }
-  | { type: "toggle_cart" };
+  | { type: "toggle_cart" }
+  | { type: "change_sort_by"; sortBy: SortByType };
 
 export const shoppingCartReducer = (
   prevState: ShoppingCartStateType,
@@ -56,6 +60,8 @@ export const shoppingCartReducer = (
         ...prevState,
         cartOpen: !prevState.cartOpen,
       };
+    case "change_sort_by":
+      return { ...prevState, sortBy: action.sortBy };
     default:
       return prevState;
   }

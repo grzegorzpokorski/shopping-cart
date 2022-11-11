@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  ProductInCart,
+  ProductInCartType,
   ProductType,
   useShoppingCartContext,
 } from "../../../context/ShoppingCartContext";
@@ -8,7 +8,7 @@ import { formatCurrency } from "../../../utils/formatCurrency";
 import { Button } from "../../atoms/button/Button";
 import { FaMinus, FaPlus, FaTrashAlt } from "react-icons/fa";
 
-type CartListItemProps = ProductType & Pick<ProductInCart, "qty">;
+type CartListItemProps = ProductType & Pick<ProductInCartType, "qty">;
 
 export const CartListItem = ({
   id,

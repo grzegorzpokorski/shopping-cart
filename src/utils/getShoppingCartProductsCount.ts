@@ -1,6 +1,6 @@
-import { ProductInCart } from "../context/ShoppingCartContext";
+import { ProductInCartType } from "../context/ShoppingCartContext";
 
-export const getShoppingCartProductsCount = (products: ProductInCart[]) =>
+export const getShoppingCartProductsCount = (products: ProductInCartType[]) =>
   products.reduce((sum, product) => {
     return sum + product.qty;
   }, 0);
