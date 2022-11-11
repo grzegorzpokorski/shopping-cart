@@ -31,7 +31,7 @@ export type ProductInCartType = {
   qty: number;
 };
 
-export type SortByType = "DEFAULT" | "PRICE_DESC" | "PRICE_ASC";
+export type SortByType = "PRICE_DESC" | "PRICE_ASC" | null;
 
 export type ShoppingCartStateType = {
   products: ProductType[];
@@ -64,7 +64,7 @@ export const ShoppingCartProvider = ({
     products: data,
     inCart: [],
     cartOpen: false,
-    sortBy: "DEFAULT",
+    sortBy: null,
   };
 
   const [appState, setAppState] = useLocalStorage(
