@@ -11,7 +11,25 @@ export const CartSummary = () => {
     <div className="flex flex-col justify-end border-t border-zinc-200 py-6">
       <div className="flex justify-between text-base">
         <p>Razem do zapłaty:</p>
-        <p>{formatCurrency(getTotalPrice(shoppingCartState.inCart))}</p>
+        <p>
+          {formatCurrency(
+            getTotalPrice(
+              shoppingCartState.inCart.map((item) => {
+                const product = shoppingCartState.products.find(
+                  (p) => p.id === item.id,
+                );
+
+                if (product) return { qty: item.qty, price: product.price };
+
+                shoppingCartDispatch({
+                  type: "remove_product_from_cart",
+                  id: item.id,
+                });
+                return { qty: item.qty, price: 0 };
+              }),
+            ),
+          )}
+        </p>
       </div>
       <div className="mt-6 flex flex-col justify-center text-center">
         <Button variant="indigo">Potwierdź zakup</Button>

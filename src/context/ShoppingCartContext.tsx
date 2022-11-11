@@ -26,7 +26,8 @@ export type ProductType = {
   availableAmount: number;
 };
 
-export type ProductInCart = ProductType & {
+export type ProductInCart = {
+  id: number;
   qty: number;
 };
 

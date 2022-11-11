@@ -13,21 +13,16 @@ export const shoppingCartReducer = (
 ) => {
   switch (action.type) {
     case "add_product_to_cart": {
-      const product = prevState.products.find((p) => p.id == action.id);
-
-      if (product) {
-        return {
-          ...prevState,
-          inCart: [
-            ...prevState.inCart,
-            {
-              ...product,
-              qty: 1,
-            },
-          ],
-        };
-      }
-      return prevState;
+      return {
+        ...prevState,
+        inCart: [
+          ...prevState.inCart,
+          {
+            id: action.id,
+            qty: 1,
+          },
+        ],
+      };
     }
     case "remove_product_from_cart":
       return {
