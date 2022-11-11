@@ -7,6 +7,7 @@ import { Logo } from "../../molecules/logo/Logo";
 import cn from "classnames";
 import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
 import { MainMenu } from "../../molecules/mainMenu/MainMenu";
+import { FaHistory, FaStar } from "react-icons/fa";
 
 export const Navbar = () => {
   const [isHome, setIsHome] = useState(false);
@@ -34,7 +35,20 @@ export const Navbar = () => {
       >
         <Logo content="Shop" isHome={isHome} isTitle={isHome} />
         <div className="flex flex-row gap-4 items-center">
-          <MainMenu />
+          <MainMenu
+            items={[
+              {
+                label: "Ulubione",
+                href: "/ulubione",
+                icon: <FaStar />,
+              },
+              {
+                label: "Historia zakupów",
+                href: "/historia",
+                icon: <FaHistory />,
+              },
+            ]}
+          />
           <div ref={cartContainerRef}>
             <CartTrigger cartOpen={cartOpen} toggleCart={toggleCart} />
             <Cart cartOpen={cartOpen} />
