@@ -12,7 +12,7 @@ export const ProductsList = () => {
   );
 
   return (
-    <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 py-12">
+    <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
       {products.map((product) => (
         <ProductListItem key={product.id} {...product} />
       ))}
