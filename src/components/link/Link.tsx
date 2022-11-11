@@ -1,4 +1,5 @@
 import React, { AnchorHTMLAttributes, ReactNode } from "react";
+import classNames from "classnames";
 import { Link as ReactLink } from "react-router-dom";
 
 type LinkProps = {
@@ -11,14 +12,24 @@ export const Link = ({ href, children, ...rest }: LinkProps) => {
 
   if (isInternal) {
     return (
-      <ReactLink to={href} {...rest}>
+      <ReactLink
+        to={href}
+        {...rest}
+        className={classNames("hover:opacity-80", rest.className)}
+      >
         {children}
       </ReactLink>
     );
   }
 
   return (
-    <a href={href} rel="noopener noreferrer" target="_blank" {...rest}>
+    <a
+      href={href}
+      rel="noopener noreferrer"
+      target="_blank"
+      {...rest}
+      className="hover:opacity-80"
+    >
       {children}
     </a>
   );
