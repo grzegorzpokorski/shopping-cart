@@ -1,6 +1,6 @@
 import React from "react";
-import { useShoppingCartContext } from "../../context/ShoppingCartContext";
-import { ProductListItem } from "../productListItem/ProductListItem";
+import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
+import { ProductListItem } from "../../molecules/productListItem/ProductListItem";
 
 export const ProductsList = () => {
   const { shoppingCartState } = useShoppingCartContext();

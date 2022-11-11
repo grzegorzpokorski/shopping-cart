@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { useOnClickOutside } from "../../hooks/useOnClickOutside";
-import { Cart } from "../cart/Cart";
-import { CartTrigger } from "../cartTrigger/CartTrigger";
-import { Logo } from "../logo/Logo";
+import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
+import { Cart } from "../../templates/cart/Cart";
+import { CartTrigger } from "../../molecules/cartTrigger/CartTrigger";
+import { Logo } from "../../molecules/logo/Logo";
 import cn from "classnames";
-import { useShoppingCartContext } from "../../context/ShoppingCartContext";
-import { MainMenu } from "../mainMenu/MainMenu";
+import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
+import { MainMenu } from "../../molecules/mainMenu/MainMenu";
 
 export const Navbar = () => {
   const [isHome, setIsHome] = useState(false);

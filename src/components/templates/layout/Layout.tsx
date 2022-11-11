@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
-import { Footer } from "../footer/Footer";
-import { Navbar } from "../navbar/Navbar";
-import { Link } from "../link/Link";
+import { Footer } from "../../organisms/footer/Footer";
+import { Link } from "../../atoms/link/Link";
+import { SiteHeader } from "../siteHeader/SiteHeader";
 
 type LayoutProps = {
   children: ReactNode;
@@ -10,9 +10,7 @@ type LayoutProps = {
 export const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
+      <SiteHeader />
       <main className="container mx-auto px-4 mt-16 lg:mt-20">{children}</main>
       <Footer
         content={

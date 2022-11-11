@@ -1,7 +1,8 @@
 import React from "react";
 import { FaShoppingBasket, FaPlus } from "react-icons/fa";
-import { useShoppingCartContext } from "../../context/ShoppingCartContext";
-import { getShoppingCartProductsCount } from "../../utils/getShoppingCartProductsCount";
+import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
+import { getShoppingCartProductsCount } from "../../../utils/getShoppingCartProductsCount";
+import { Button } from "../../atoms/button/Button";
 
 type CartTriggerType = {
   cartOpen: boolean;
@@ -15,9 +16,8 @@ export const CartTrigger = ({ cartOpen, toggleCart }: CartTriggerType) => {
   const { shoppingCartState } = useShoppingCartContext();
 
   return (
-    <button
-      id="cartTrigger"
-      className="relative h-8 w-8 flex items-center justify-center text-2xl hover:opacity-80 transition"
+    <Button
+      variant="cart_trigger"
       aria-label={`${
         cartOpen ? ariaLabelForOpened : ariaLabelForClosed
       } koszyk`}
@@ -35,6 +35,6 @@ export const CartTrigger = ({ cartOpen, toggleCart }: CartTriggerType) => {
           </span>
         </>
       )}
-    </button>
+    </Button>
   );
 };

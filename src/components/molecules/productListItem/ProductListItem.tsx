@@ -1,11 +1,11 @@
 import React from "react";
-import { siteUrl } from "../../utils/getSiteUrl";
-import { formatCurrency } from "../../utils/formatCurrency";
-import { Button } from "../button/Button";
+import { siteUrl } from "../../../utils/getSiteUrl";
+import { formatCurrency } from "../../../utils/formatCurrency";
+import { Button } from "../../atoms/button/Button";
 import {
   ProductType,
   useShoppingCartContext,
-} from "../../context/ShoppingCartContext";
+} from "../../../context/ShoppingCartContext";
 
 export const ProductListItem = ({
   id,

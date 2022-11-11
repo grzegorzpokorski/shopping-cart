@@ -1,8 +1,8 @@
 import React from "react";
-import { useShoppingCartContext } from "../../context/ShoppingCartContext";
-import { formatCurrency } from "../../utils/formatCurrency";
-import { getTotalPrice } from "../../utils/getTotalPrice";
-import { Button } from "../button/Button";
+import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
+import { formatCurrency } from "../../../utils/formatCurrency";
+import { getTotalPrice } from "../../../utils/getTotalPrice";
+import { Button } from "../../atoms/button/Button";
 
 export const CartSummary = () => {
   const { shoppingCartState, shoppingCartDispatch } = useShoppingCartContext();

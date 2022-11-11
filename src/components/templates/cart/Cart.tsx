@@ -1,9 +1,9 @@
 import React from "react";
 import cn from "classnames";
-import { useShoppingCartContext } from "../../context/ShoppingCartContext";
-import { CartList } from "../cartList/CartList";
-import { EmptyCart } from "../emptyCart/EmptyCart";
-import { CartSummary } from "../cartSummary/CartSummary";
+import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
+import { CartList } from "../../organisms/cartList/CartList";
+import { EmptyCart } from "../../molecules/emptyCart/EmptyCart";
+import { CartSummary } from "../../molecules/cartSummary/CartSummary";
 
 type CartProps = {
   cartOpen: boolean;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "../link/Link";
+import { Link } from "../../atoms/link/Link";
 import { FaStar, FaHistory } from "react-icons/fa";
 
 export const MainMenu = () => {

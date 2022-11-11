@@ -1,6 +1,6 @@
 import React from "react";
-import { Layout } from "../components/layout/Layout";
-import { ProductsList } from "../components/productsList/ProductsList";
+import { Layout } from "../components/templates/layout/Layout";
+import { ProductsList } from "../components/organisms/productsList/ProductsList";
 import { ShoppingCartProvider } from "../context/ShoppingCartContext";
 
 export const Home = () => {

@@ -2,9 +2,9 @@ import React from "react";
 import {
   ProductInCart,
   useShoppingCartContext,
-} from "../../context/ShoppingCartContext";
-import { formatCurrency } from "../../utils/formatCurrency";
-import { Button } from "../button/Button";
+} from "../../../context/ShoppingCartContext";
+import { formatCurrency } from "../../../utils/formatCurrency";
+import { Button } from "../../atoms/button/Button";
 import { FaMinus, FaPlus, FaTrashAlt } from "react-icons/fa";
 
 export const CartListItem = ({
@@ -28,6 +28,7 @@ export const CartListItem = ({
               alt={image.alt}
               height={image.height}
               width={image.width}
+              className="h-full w-full object-cover object-center"
             />
           </div>
           <div className="flex flex-col text-sm text-gray-900">
@@ -51,7 +52,7 @@ export const CartListItem = ({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1">
           <Button
-            variant="cart"
+            variant="quantity_button"
             disabled={qty === 1}
             onClick={() =>
               shoppingCartDispatch({
@@ -71,7 +72,7 @@ export const CartListItem = ({
             </span>
           </span>
           <Button
-            variant="cart"
+            variant="quantity_button"
             disabled={qty === availableAmount ? true : false}
             onClick={() =>
               shoppingCartDispatch({

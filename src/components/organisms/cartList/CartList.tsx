@@ -1,7 +1,7 @@
 import React from "react";
-import { ProductInCart } from "../../context/ShoppingCartContext";
+import { ProductInCart } from "../../../context/ShoppingCartContext";
 
-import { CartListItem } from "../cartListItem/CartListItem";
+import { CartListItem } from "../../molecules/cartListItem/CartListItem";
 
 type CartListProps = {
   products: ProductInCart[];
