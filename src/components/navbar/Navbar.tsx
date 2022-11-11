@@ -6,6 +6,7 @@ import { CartTrigger } from "../cartTrigger/CartTrigger";
 import { Logo } from "../logo/Logo";
 import cn from "classnames";
 import { useShoppingCartContext } from "../../context/ShoppingCartContext";
+import { MainMenu } from "../mainMenu/MainMenu";
 
 export const Navbar = () => {
   const [isHome, setIsHome] = useState(false);
@@ -32,16 +33,19 @@ export const Navbar = () => {
         className={`container mx-auto px-4 flex flex-row justify-between items-center h-16 lg:h-20`}
       >
         <Logo content="Shop" isHome={isHome} isTitle={isHome} />
-        <div ref={cartContainerRef}>
-          <CartTrigger cartOpen={cartOpen} toggleCart={toggleCart} />
-          <Cart cartOpen={cartOpen} />
+        <div className="flex flex-row gap-4 items-center">
+          <MainMenu />
+          <div ref={cartContainerRef}>
+            <CartTrigger cartOpen={cartOpen} toggleCart={toggleCart} />
+            <Cart cartOpen={cartOpen} />
+          </div>
+          <div
+            className={cn(
+              "fixed inset-0 bg-black top-16 lg:top-20 opacity-50 transition",
+              { "hidden opacity-0": !cartOpen },
+            )}
+          ></div>
         </div>
-        <div
-          className={cn(
-            "fixed inset-0 bg-black top-16 lg:top-20 opacity-50 transition",
-            { "hidden opacity-0": !cartOpen },
-          )}
-        ></div>
       </section>
     </nav>
   );
