@@ -11,7 +11,9 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <SiteHeader />
-      <main className="container mx-auto px-4 mt-16 lg:mt-20">{children}</main>
+      <main className="container mx-auto px-4 py-12 mt-16 lg:mt-20">
+        {children}
+      </main>
       <Footer
         content={
           <p className="text-sm text-center">
