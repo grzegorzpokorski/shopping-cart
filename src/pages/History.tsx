@@ -2,11 +2,11 @@ import React from "react";
 import { Layout } from "../components/templates/layout/Layout";
 import { ShoppingCartProvider } from "../context/ShoppingCartContext";
 
-export const Test = () => {
+export const History = () => {
   return (
     <ShoppingCartProvider>
       <Layout>
-        <p>hello</p>
+        <p>History</p>
       </Layout>
     </ShoppingCartProvider>
   );
