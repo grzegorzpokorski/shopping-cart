@@ -18,7 +18,7 @@ export const FavouriteProductsList = () => {
     <p className="text-center">
       Nie masz ulubionych produktów.{" "}
       <Link href="/">
-        <Button variant="indigo_link">Przejdź do listy producktów.</Button>
+        <Button variant="indigo_link">Przejdź do listy produktów.</Button>
       </Link>
     </p>
   );
