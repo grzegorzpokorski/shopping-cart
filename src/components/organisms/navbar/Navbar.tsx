@@ -7,7 +7,7 @@ import { Logo } from "../../molecules/logo/Logo";
 import cn from "classnames";
 import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
 import { MainMenu } from "../../molecules/mainMenu/MainMenu";
-import { FaHistory, FaStar } from "react-icons/fa";
+import { FaHeart, FaHistory } from "react-icons/fa";
 
 export const Navbar = () => {
   const [isHome, setIsHome] = useState(false);
@@ -40,7 +40,7 @@ export const Navbar = () => {
               {
                 label: "Ulubione",
                 href: "/ulubione",
-                icon: <FaStar />,
+                icon: <FaHeart />,
               },
               {
                 label: "Historia zakupów",

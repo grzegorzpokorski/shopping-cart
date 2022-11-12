@@ -13,7 +13,8 @@ type ButtonVariants =
   | "indigo"
   | "indigo_link"
   | "quantity_button"
-  | "cart_trigger";
+  | "cart_trigger"
+  | "favourite_trigger";
 
 const variants = {
   default:
@@ -25,6 +26,7 @@ const variants = {
     "flex items-center border-2 border-zinc-400 hover:border-zinc-600 rounded text-zinc-400 hover:text-zinc-600 p-1 text-sm disabled:cursor-not-allowed disabled:text-zinc-300 disabled:border-zinc-300 disabled:hover:text-zinc-300 disabled:hover:border-zinc-300",
   cart_trigger:
     "relative h-8 w-8 flex items-center justify-center text-2xl hover:opacity-80",
+  favourite_trigger: "p-3 text-xl rounded-full bg-white text-zinc-700",
 } as const;
 
 export const Button = ({
