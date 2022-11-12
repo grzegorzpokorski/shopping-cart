@@ -6,7 +6,7 @@ export const History = () => {
   return (
     <ShoppingCartProvider>
       <Layout>
-        <p>History</p>
+        <p>historia zakupów</p>
       </Layout>
     </ShoppingCartProvider>
   );

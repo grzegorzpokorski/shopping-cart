@@ -1,13 +1,13 @@
 import React from "react";
 import { Layout } from "../components/templates/layout/Layout";
-import { ProductsList } from "../components/organisms/productsList/ProductsList";
 import { ShoppingCartProvider } from "../context/ShoppingCartContext";
+import { HomeProductsList } from "../components/templates/homeProductsList/HomeProductsList";
 
 export const Home = () => {
   return (
     <ShoppingCartProvider>
       <Layout>
-        <ProductsList />
+        <HomeProductsList />
       </Layout>
     </ShoppingCartProvider>
   );

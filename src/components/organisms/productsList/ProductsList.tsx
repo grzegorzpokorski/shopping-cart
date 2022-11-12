@@ -1,16 +1,12 @@
 import React from "react";
-import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
-import { getSortedProducts } from "../../../utils/getSortedProducts";
+import { ProductType } from "../../../context/ShoppingCartContext";
 import { ProductListItem } from "../../molecules/productListItem/ProductListItem";
 
-export const ProductsList = () => {
-  const { shoppingCartState } = useShoppingCartContext();
+type ProductsListProps = {
+  products: ProductType[];
+};
 
-  const products = getSortedProducts(
-    shoppingCartState.products,
-    shoppingCartState.sortBy,
-  );
-
+export const ProductsList = ({ products }: ProductsListProps) => {
   return (
     <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
       {products.map((product) => (
