@@ -34,12 +34,13 @@ export const CartSummary = () => {
       <div className="mt-6 flex flex-col justify-center text-center">
         <Button
           variant="indigo"
-          onClick={() =>
+          onClick={() => {
             shoppingCartDispatch({
               type: "place_order",
               order: shoppingCartState.inCart,
-            })
-          }
+            });
+            shoppingCartDispatch({ type: "toggle_cart" });
+          }}
         >
           Złóż zamówienie
         </Button>
