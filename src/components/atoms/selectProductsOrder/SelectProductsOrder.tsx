@@ -31,7 +31,7 @@ export const SelectProductsOrder = ({
       <select
         name="label"
         id={id}
-        className="rounded text-sm"
+        className="rounded text-sm border-zinc-700 focus:ring-indigo-600 focus:border-indigo-600"
         onChange={(e) => {
           shoppingCartDispatch({
             type: "change_sort_by",
