@@ -58,6 +58,7 @@ export const ProductListItem = ({
                 shoppingCartDispatch({
                   type: "add_product_to_cart",
                   id,
+                  price,
                 })
               }
             >

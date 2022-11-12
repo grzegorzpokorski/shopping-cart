@@ -1,16 +1,18 @@
 import {
+  ProductInCartType,
   ShoppingCartStateType,
   SortByType,
 } from "../context/ShoppingCartContext";
 
 export type ShoppingCartActionType =
-  | { type: "add_product_to_cart"; id: number }
+  | { type: "add_product_to_cart"; id: number; price: number }
   | { type: "remove_product_from_cart"; id: number }
   | { type: "increase_product_qty_in_cart"; id: number }
   | { type: "decrease_product_qty_in_cart"; id: number }
   | { type: "toggle_cart" }
   | { type: "change_sort_by"; sortBy: SortByType }
-  | { type: "toggle_favourite"; id: number };
+  | { type: "toggle_favourite"; id: number }
+  | { type: "place_order"; order: ProductInCartType[] };
 
 export const shoppingCartReducer = (
   prevState: ShoppingCartStateType,
@@ -25,6 +27,7 @@ export const shoppingCartReducer = (
           {
             id: action.id,
             qty: 1,
+            price: action.price,
           },
         ],
       };
@@ -75,6 +78,14 @@ export const shoppingCartReducer = (
       return {
         ...prevState,
         favourite: [...prevState.favourite, action.id],
+      };
+    }
+    case "place_order": {
+      return {
+        ...prevState,
+        inCart: [],
+        orders: [{ id: Date.now(), items: action.order }, ...prevState.orders],
+        products: prevState.products,
       };
     }
     default:
