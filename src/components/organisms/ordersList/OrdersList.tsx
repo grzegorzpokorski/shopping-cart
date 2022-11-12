@@ -1,19 +1,17 @@
 import React from "react";
-import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
+import { OrderType } from "../../../context/ShoppingCartContext";
 import { Order } from "../../molecules/order/Order";
 
-export const OrdersList = () => {
-  const { shoppingCartState } = useShoppingCartContext();
+type OrdersType = {
+  orders: OrderType[];
+};
 
-  if (shoppingCartState.orders.length > 0) {
-    return (
-      <ul className="flex flex-col gap-6">
-        {shoppingCartState.orders.map((order) => (
-          <Order key={order.id} {...order} />
-        ))}
-      </ul>
-    );
-  }
-
-  return null;
+export const OrdersList = ({ orders }: OrdersType) => {
+  return (
+    <ul className="flex flex-col gap-6">
+      {orders.map((order) => (
+        <Order key={order.id} {...order} />
+      ))}
+    </ul>
+  );
 };
