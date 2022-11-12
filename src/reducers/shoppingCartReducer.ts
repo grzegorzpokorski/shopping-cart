@@ -1,4 +1,3 @@
-import { NoSubstitutionTemplateLiteral } from "typescript";
 import {
   ProductInCartType,
   ShoppingCartStateType,
