@@ -35,6 +35,13 @@ export const CartSummary = () => {
         <Button
           variant="indigo"
           onClick={() => {
+            shoppingCartState.inCart.map((item) =>
+              shoppingCartDispatch({
+                type: "decrease_available_amount",
+                id: item.id,
+                orderedAmount: item.qty,
+              }),
+            );
             shoppingCartDispatch({
               type: "place_order",
               order: shoppingCartState.inCart,

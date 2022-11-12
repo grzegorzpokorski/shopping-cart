@@ -1,3 +1,4 @@
+import { NoSubstitutionTemplateLiteral } from "typescript";
 import {
   ProductInCartType,
   ShoppingCartStateType,
@@ -12,7 +13,12 @@ export type ShoppingCartActionType =
   | { type: "toggle_cart" }
   | { type: "change_sort_by"; sortBy: SortByType }
   | { type: "toggle_favourite"; id: number }
-  | { type: "place_order"; order: ProductInCartType[] };
+  | { type: "place_order"; order: ProductInCartType[] }
+  | {
+      type: "decrease_available_amount";
+      id: number;
+      orderedAmount: number;
+    };
 
 export const shoppingCartReducer = (
   prevState: ShoppingCartStateType,
@@ -88,6 +94,20 @@ export const shoppingCartReducer = (
         products: prevState.products,
       };
     }
+    case "decrease_available_amount":
+      return {
+        ...prevState,
+        products: [
+          ...prevState.products.map((item) =>
+            item.id === action.id
+              ? {
+                  ...item,
+                  availableAmount: item.availableAmount - action.orderedAmount,
+                }
+              : { ...item },
+          ),
+        ],
+      };
     default:
       return prevState;
   }
