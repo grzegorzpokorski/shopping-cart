@@ -1,6 +1,7 @@
 import React from "react";
 import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
 import { getSortedProducts } from "../../../utils/getSortedProducts";
+import { Title } from "../../atoms/title/Title";
 import { ProductsList } from "../../organisms/productsList/ProductsList";
 
 export const HomeProductsList = () => {
@@ -10,5 +11,10 @@ export const HomeProductsList = () => {
     shoppingCartState.products,
     shoppingCartState.sortBy,
   );
-  return <ProductsList products={products} />;
+  return (
+    <>
+      <Title as="h2">Wszystkie przedmioty</Title>
+      <ProductsList products={products} />
+    </>
+  );
 };

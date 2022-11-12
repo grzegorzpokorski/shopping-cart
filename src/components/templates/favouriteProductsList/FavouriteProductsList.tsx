@@ -2,6 +2,7 @@ import React from "react";
 import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
 import { Button } from "../../atoms/button/Button";
 import { Link } from "../../atoms/link/Link";
+import { Title } from "../../atoms/title/Title";
 import { ProductsList } from "../../organisms/productsList/ProductsList";
 
 export const FavouriteProductsList = () => {
@@ -11,7 +12,12 @@ export const FavouriteProductsList = () => {
   );
 
   if (products.length > 0) {
-    return <ProductsList products={products} />;
+    return (
+      <>
+        <Title as="h1">Ulubione przedmioty</Title>
+        <ProductsList products={products} />
+      </>
+    );
   }
 
   return (
