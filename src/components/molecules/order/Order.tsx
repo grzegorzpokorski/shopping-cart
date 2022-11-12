@@ -7,12 +7,24 @@ import { formatCurrency } from "../../../utils/formatCurrency";
 import { getTotalPrice } from "../../../utils/getTotalPrice";
 
 type OrderProps = {
+  id: number;
   items: ProductInCartType[];
 };
 
-export const Order = ({ items }: OrderProps) => {
+export const Order = ({ id, items }: OrderProps) => {
   return (
     <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 bg-white p-4 rounded">
+      <div className="flex justify-between border-b-2 pb-3  text-sm">
+        <p>
+          {new Date(id).toLocaleDateString("pl", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </p>
+      </div>
       <ul className="flex flex-col divide-y divide-gray-200 -my-2">
         {items.map((item) => (
           <Item key={item.id} {...item} />
