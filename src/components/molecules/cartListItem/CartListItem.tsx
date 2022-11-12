@@ -22,7 +22,7 @@ export const CartListItem = ({
   const { shoppingCartDispatch } = useShoppingCartContext();
 
   return (
-    <li className="flex flex-col gap-4 py-6" key={id}>
+    <li className="flex flex-col gap-4 py-6">
       <div className="flex items-center justify-between gap-4">
         <div className="flex gap-4 items-center">
           <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded border border-gray-200">
