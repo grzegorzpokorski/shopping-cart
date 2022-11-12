@@ -9,7 +9,8 @@ export type ShoppingCartActionType =
   | { type: "increase_product_qty_in_cart"; id: number }
   | { type: "decrease_product_qty_in_cart"; id: number }
   | { type: "toggle_cart" }
-  | { type: "change_sort_by"; sortBy: SortByType };
+  | { type: "change_sort_by"; sortBy: SortByType }
+  | { type: "toggle_favourite"; id: number };
 
 export const shoppingCartReducer = (
   prevState: ShoppingCartStateType,
@@ -62,6 +63,20 @@ export const shoppingCartReducer = (
       };
     case "change_sort_by":
       return { ...prevState, sortBy: action.sortBy };
+    case "toggle_favourite": {
+      if (prevState.favourite.includes(action.id)) {
+        return {
+          ...prevState,
+          favourite: [
+            ...prevState.favourite.filter((item) => item !== action.id),
+          ],
+        };
+      }
+      return {
+        ...prevState,
+        favourite: [...prevState.favourite, action.id],
+      };
+    }
     default:
       return prevState;
   }

@@ -6,7 +6,7 @@ import {
   ProductType,
   useShoppingCartContext,
 } from "../../../context/ShoppingCartContext";
-import { FaRegHeart } from "react-icons/fa";
+import { FavouriteTrigger } from "../favouriteTrigger/FavouriteTriggeer";
 
 export const ProductListItem = ({
   id,
@@ -32,11 +32,10 @@ export const ProductListItem = ({
           width={image.width}
           className="object-contain object-center w-full h-full group-hover:scale-[1.025] transition duration-300"
         />
-        <span className="absolute top-0 left-0 flex items-center justify-center bg-white">
-          <Button variant="favourite_trigger">
-            <FaRegHeart />
-          </Button>
-        </span>
+        <FavouriteTrigger
+          checked={shoppingCartState.favourite.includes(id)}
+          onClick={() => shoppingCartDispatch({ type: "toggle_favourite", id })}
+        />
       </figure>
       <div className="flex flex-col gap-4">
         <div>

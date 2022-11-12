@@ -33,11 +33,14 @@ export type ProductInCartType = {
 
 export type SortByType = "PRICE_DESC" | "PRICE_ASC" | null;
 
+export type Favourite = number[];
+
 export type ShoppingCartStateType = {
   products: ProductType[];
   inCart: ProductInCartType[];
   cartOpen: boolean;
   sortBy: SortByType;
+  favourite: Favourite;
 };
 
 type ShoppingCartContextType = {
@@ -65,6 +68,7 @@ export const ShoppingCartProvider = ({
     inCart: [],
     cartOpen: false,
     sortBy: null,
+    favourite: [],
   };
 
   const [appState, setAppState] = useLocalStorage(
