@@ -13,7 +13,6 @@ type MainMenuProps = {
 
 export const MainMenu = ({ items }: MainMenuProps) => {
   const { pathname } = useLocation();
-  console.log(pathname);
 
   return (
     <ul className="flex items-center gap-5">
