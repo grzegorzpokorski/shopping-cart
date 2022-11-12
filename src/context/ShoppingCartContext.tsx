@@ -32,7 +32,7 @@ export type ProductInCartType = {
   price: number;
 };
 
-export type SortByType = "PRICE_DESC" | "PRICE_ASC" | null;
+export type SortByType = "DEFAULT" | "PRICE_DESC" | "PRICE_ASC";
 
 export type FavouriteType = number[];
 
@@ -71,7 +71,7 @@ export const ShoppingCartProvider = ({
     products: data,
     inCart: [],
     cartOpen: false,
-    sortBy: null,
+    sortBy: "DEFAULT",
     favourite: [],
     orders: [],
   };
