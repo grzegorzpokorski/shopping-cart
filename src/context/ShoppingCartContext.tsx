@@ -36,7 +36,7 @@ export type SortByType = "PRICE_DESC" | "PRICE_ASC" | null;
 
 export type FavouriteType = number[];
 
-export type Order = { id: number; items: ProductInCartType[] };
+export type OrderType = { id: number; items: ProductInCartType[] };
 
 export type ShoppingCartStateType = {
   products: ProductType[];
@@ -44,7 +44,7 @@ export type ShoppingCartStateType = {
   cartOpen: boolean;
   sortBy: SortByType;
   favourite: FavouriteType;
-  orders: Order[];
+  orders: OrderType[];
 };
 
 type ShoppingCartContextType = {
