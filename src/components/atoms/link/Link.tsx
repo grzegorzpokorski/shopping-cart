@@ -1,21 +1,34 @@
 import React, { AnchorHTMLAttributes, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 import { Link as ReactLink } from "react-router-dom";
+
+type VariantType = "default" | "indigo";
 
 type LinkProps = {
   href: string;
   children: ReactNode;
+  variant?: VariantType;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const Link = ({ href, children, ...rest }: LinkProps) => {
+export const Link = ({
+  href,
+  children,
+  variant = "default",
+  ...rest
+}: LinkProps) => {
   const isInternal = href && (href.startsWith("#") || href.startsWith("/"));
+
+  const variants = {
+    default: "hover:opacity-80",
+    indigo: "text-indigo-600",
+  };
 
   if (isInternal) {
     return (
       <ReactLink
         to={href}
         {...rest}
-        className={classNames("hover:opacity-80", rest.className)}
+        className={cn(variants[variant], rest.className)}
       >
         {children}
       </ReactLink>
@@ -28,7 +41,7 @@ export const Link = ({ href, children, ...rest }: LinkProps) => {
       rel="noopener noreferrer"
       target="_blank"
       {...rest}
-      className="hover:opacity-80"
+      className={cn(variants[variant], rest.className)}
     >
       {children}
     </a>
