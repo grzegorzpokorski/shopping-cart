@@ -6,7 +6,7 @@ import {
   ProductType,
   useShoppingCartContext,
 } from "../../../context/ShoppingCartContext";
-import { FavouriteTrigger } from "../favouriteTrigger/FavouriteTriggeer";
+import { FavouriteTrigger } from "../favouriteTrigger/FavouriteTrigger";
 
 export const ProductListItem = ({
   id,
