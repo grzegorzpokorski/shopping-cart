@@ -23,7 +23,7 @@ export const SelectInput = <T extends string>({
   const generatedId = useId();
 
   return (
-    <div className="relative flex gap-2 items-center mb-6 text-sm">
+    <div className="relative flex gap-2 items-center text-sm">
       <label
         htmlFor={id ? id : generatedId}
         className="absolute z-10 -top-2.5 left-2 bg-white px-1.5 text-zinc-500 text-xs"

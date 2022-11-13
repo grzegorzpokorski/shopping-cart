@@ -45,6 +45,7 @@ export type ShoppingCartStateType = {
   sortBy: SortByType;
   favourite: FavouriteType;
   orders: OrderType[];
+  category: string;
 };
 
 type ShoppingCartContextType = {
@@ -74,6 +75,7 @@ export const ShoppingCartProvider = ({
     sortBy: "DEFAULT",
     favourite: [],
     orders: [],
+    category: "all",
   };
 
   const [appState, setAppState] = useLocalStorage(

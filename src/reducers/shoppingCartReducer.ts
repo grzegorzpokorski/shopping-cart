@@ -11,6 +11,7 @@ export type ShoppingCartActionType =
   | { type: "decrease_product_qty_in_cart"; id: number }
   | { type: "toggle_cart" }
   | { type: "change_sort_by"; sortBy: SortByType }
+  | { type: "change_displayed_category"; category: string }
   | { type: "toggle_favourite"; id: number }
   | { type: "place_order"; order: ProductInCartType[] }
   | {
@@ -71,6 +72,8 @@ export const shoppingCartReducer = (
       };
     case "change_sort_by":
       return { ...prevState, sortBy: action.sortBy };
+    case "change_displayed_category":
+      return { ...prevState, category: action.category };
     case "toggle_favourite": {
       if (prevState.favourite.includes(action.id)) {
         return {
