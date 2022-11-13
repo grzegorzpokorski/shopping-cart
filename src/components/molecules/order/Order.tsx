@@ -36,8 +36,6 @@ export const Order = ({ id, items }: OrderProps) => {
       </div>
     </li>
   );
-
-  return null;
 };
 
 const Item = ({ id, qty, price }: ProductInCartType) => {
