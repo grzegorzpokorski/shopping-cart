@@ -17,7 +17,17 @@ export const FavouriteTrigger = ({
         variant={checked ? "favourite_trigger_active" : "favourite_trigger"}
         onClick={onClick}
       >
-        {checked ? <FaHeart /> : <FaRegHeart />}
+        {checked ? (
+          <>
+            <FaHeart />
+            <span className="sr-only">odznacz jako ulubiony</span>
+          </>
+        ) : (
+          <>
+            <FaRegHeart />
+            <span className="sr-only">oznacz jako ulubiony</span>
+          </>
+        )}
       </Button>
     </span>
   );
