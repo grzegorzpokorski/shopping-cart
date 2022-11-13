@@ -1,6 +1,6 @@
 # Shopping cart
 
-Simple shopping cart app which allows to pick a items to cart, manage them in it and save placed orders to look for them in history. App uses localStorage to persist app state.
+Simple shopping cart app which allows to pick a items to cart, manage them in it and save placed orders to look for them in history. You can also mark items as favorite. App uses localStorage to persist app state.
 
 ## 📍 Purpose of creating this app:
 
