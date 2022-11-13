@@ -21,11 +21,11 @@ export const Cart = ({ cartOpen }: CartProps) => {
           { "translate-x-full": !cartOpen },
         )}
       >
-        <h3 className="text-lg font-bold text-center mb-2 border-b-2 pb-6 md:pb-8">
+        <h2 className="text-lg font-bold text-center mb-2 border-b-2 pb-6 md:pb-8">
           {shoppingCartState.inCart.length > 0
             ? "Zawartość koszyka"
             : "Twoj koszyk jest pusty"}
-        </h3>
+        </h2>
         {shoppingCartState.inCart.length > 0 ? (
           <>
             <CartList products={shoppingCartState.inCart} />
