@@ -1,7 +1,6 @@
 # Shopping cart
 
-Simple shopping cart app which allows to pick a items to cart, manage them in it and save placed orders to look for them in history. You can also mark items as favorite. App uses localStorage to persist app state.
-
+Simple shopping cart app which allows to add items to cart, manage them in it and save placed orders to look for them in shopping history. You can also mark items as favorite. App uses localStorage to persist app state.
 ## 📍 Purpose of creating this app:
 
 Learn how to use useReducer hook in action. Test how it is when components are organised in atomic design methodology.
