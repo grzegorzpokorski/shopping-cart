@@ -12,7 +12,7 @@ export const ProductListItem = ({
   id,
   name,
   price,
-  type,
+  category,
   image,
   availableAmount,
 }: ProductType) => {
@@ -40,7 +40,7 @@ export const ProductListItem = ({
       <div className="flex flex-col gap-4">
         <div>
           <h3 className="text-md lg:text-xl font-bold">{name}</h3>
-          <p>{type}</p>
+          <p>{category}</p>
         </div>
         <div className="flex justify-between items-center">
           <p>{formatCurrency(price)}</p>

@@ -14,7 +14,7 @@ export const CartListItem = ({
   id,
   name,
   price,
-  type,
+  category,
   image,
   availableAmount,
   qty,
@@ -36,7 +36,7 @@ export const CartListItem = ({
           </div>
           <div className="flex flex-col text-sm text-gray-900">
             <h3 className="font-bold">{name}</h3>
-            <p className="mt-1 text-sm text-gray-500">{type}</p>
+            <p className="mt-1 text-sm text-gray-500">{category}</p>
           </div>
         </div>
         <Button
