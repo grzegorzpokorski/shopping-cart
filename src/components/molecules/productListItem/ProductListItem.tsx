@@ -24,7 +24,7 @@ export const ProductListItem = ({
 
   return (
     <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 bg-white p-4 rounded group">
-      <figure className="w-full h-80 max-h-80 overflow-hidden relative block">
+      <div className="w-full h-80 max-h-80 overflow-hidden relative block">
         <img
           src={`${siteUrl}${image.url}`}
           alt={image.alt}
@@ -36,7 +36,7 @@ export const ProductListItem = ({
           checked={shoppingCartState.favourite.includes(id)}
           onClick={() => shoppingCartDispatch({ type: "toggle_favourite", id })}
         />
-      </figure>
+      </div>
       <div className="flex flex-col gap-4">
         <div>
           <h3 className="text-md lg:text-xl font-bold">{name}</h3>

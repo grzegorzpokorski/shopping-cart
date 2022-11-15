@@ -25,7 +25,7 @@ export const CartListItem = ({
     <li className="flex flex-col gap-4 py-6">
       <div className="flex items-center justify-between gap-4">
         <div className="flex gap-4 items-center">
-          <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded border border-gray-200">
+          <picture className="h-24 w-24 flex-shrink-0 overflow-hidden rounded border border-gray-200">
             <img
               src={image.url}
               alt={image.alt}
@@ -33,7 +33,7 @@ export const CartListItem = ({
               width={image.width}
               className="h-full w-full object-cover object-center"
             />
-          </div>
+          </picture>
           <div className="flex flex-col text-sm text-gray-900">
             <h3 className="font-bold">{name}</h3>
             <p className="mt-1 text-sm text-gray-500">{category}</p>
