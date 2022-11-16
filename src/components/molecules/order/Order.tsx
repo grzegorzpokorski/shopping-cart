@@ -5,6 +5,7 @@ import {
 } from "../../../context/ShoppingCartContext";
 import { formatCurrency } from "../../../utils/formatCurrency";
 import { getTotalPrice } from "../../../utils/getTotalPrice";
+import { Button } from "../../atoms/button/Button";
 
 type OrderProps = {
   id: number;
@@ -12,9 +13,11 @@ type OrderProps = {
 };
 
 export const Order = ({ id, items }: OrderProps) => {
+  const { shoppingCartDispatch } = useShoppingCartContext();
+
   return (
     <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 bg-white p-4 rounded">
-      <div className="flex justify-between border-b-2 pb-3  text-sm">
+      <div className="flex flex-wrap gap-1.5 justify-between items-center border-b-2 pb-3 text-sm">
         <p>
           {new Date(id).toLocaleDateString("pl", {
             year: "numeric",
@@ -24,6 +27,18 @@ export const Order = ({ id, items }: OrderProps) => {
             minute: "2-digit",
           })}
         </p>
+        <Button
+          variant="red"
+          onClick={() =>
+            shoppingCartDispatch({
+              type: "cancel_order",
+              orderId: id,
+              items: items,
+            })
+          }
+        >
+          anuluj zamówienie
+        </Button>
       </div>
       <ul className="flex flex-col divide-y divide-gray-200 -my-2">
         {items.map((item) => (

@@ -1,3 +1,4 @@
+import { ProductsList } from "../components/organisms/productsList/ProductsList";
 import {
   ProductInCartType,
   ShoppingCartStateType,
@@ -18,6 +19,11 @@ export type ShoppingCartActionType =
       type: "decrease_available_amount";
       id: number;
       orderedAmount: number;
+    }
+  | {
+      type: "cancel_order";
+      orderId: number;
+      items: ProductInCartType[];
     };
 
 export const shoppingCartReducer = (
@@ -110,6 +116,24 @@ export const shoppingCartReducer = (
           ),
         ],
       };
+    case "cancel_order": {
+      const getQty = (id: number): number => {
+        const item = action.items.find((item) => item.id === id);
+        return item ? item.qty : 0;
+      };
+      return {
+        ...prevState,
+        orders: prevState.orders.filter((order) => order.id !== action.orderId),
+        products: [
+          ...prevState.products.map((item) => {
+            return {
+              ...item,
+              availableAmount: item.availableAmount + getQty(item.id),
+            };
+          }),
+        ],
+      };
+    }
     default:
       return prevState;
   }

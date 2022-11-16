@@ -15,7 +15,8 @@ type ButtonVariants =
   | "quantity_button"
   | "cart_trigger"
   | "favourite_trigger"
-  | "favourite_trigger_active";
+  | "favourite_trigger_active"
+  | "red";
 
 const variants = {
   default:
@@ -31,6 +32,7 @@ const variants = {
     "p-3 text-xl rounded-full bg-white text-zinc-700 hover:opacity-80 focus:opacity-80",
   favourite_trigger_active:
     "p-3 text-xl rounded-full bg-white text-red-500 hover:opacity-80 focus:opacity-80",
+  red: "bg-red-500 text-white text-md px-3 py-2 hover:bg-red-600 focus:bg-red-600",
 } as const;
 
 export const Button = ({
