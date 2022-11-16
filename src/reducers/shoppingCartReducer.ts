@@ -1,4 +1,3 @@
-import { ProductsList } from "../components/organisms/productsList/ProductsList";
 import {
   ProductInCartType,
   ShoppingCartStateType,
