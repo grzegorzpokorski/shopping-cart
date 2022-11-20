@@ -53,7 +53,8 @@ type ShoppingCartContextType = {
   shoppingCartDispatch: React.Dispatch<ShoppingCartActionType>;
 };
 
-const ShoppingCartContext = createContext<ShoppingCartContextType | null>(null);
+export const ShoppingCartContext =
+  createContext<ShoppingCartContextType | null>(null);
 
 export const useShoppingCartContext = () => {
   const shoppingCartContext = useContext(ShoppingCartContext);
