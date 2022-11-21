@@ -3,8 +3,8 @@ import React from "react";
 import {
   ProductType,
   useShoppingCartContext,
+  ShoppingCartProvider,
 } from "../../../context/ShoppingCartContext";
-import { ShoppingCartContextProviderForTests } from "../../../tests/ShoppingCartContextProviderForTests";
 import { ProductListItem } from "./ProductListItem";
 
 const Product = (props: Partial<ProductType>) => {
@@ -16,7 +16,7 @@ const Product = (props: Partial<ProductType>) => {
 
 describe("test <ProductListItem />", () => {
   it("should change text on add to cart button after click it", () => {
-    render(<Product />, { wrapper: ShoppingCartContextProviderForTests });
+    render(<Product />, { wrapper: ShoppingCartProvider });
     fireEvent.click(screen.getByRole("button", { name: /ulubiony/ }));
     expect(screen.getByRole("button", { name: /ulubiony/ })).toHaveTextContent(
       "odznacz jako ulubiony",
@@ -24,7 +24,7 @@ describe("test <ProductListItem />", () => {
   });
   it("should display button with text 'brak towaru' when available amount of product is equal to 0", () => {
     render(<Product availableAmount={0} />, {
-      wrapper: ShoppingCartContextProviderForTests,
+      wrapper: ShoppingCartProvider,
     });
     const addToCartBtn = screen.getByText(/brak towaru/i);
     expect(addToCartBtn).toBeInTheDocument();
