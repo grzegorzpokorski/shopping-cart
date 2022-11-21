@@ -48,7 +48,7 @@ export type ShoppingCartStateType = {
   category: string;
 };
 
-type ShoppingCartContextType = {
+export type ShoppingCartContextType = {
   shoppingCartState: ShoppingCartStateType;
   shoppingCartDispatch: React.Dispatch<ShoppingCartActionType>;
 };
