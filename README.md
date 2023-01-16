@@ -21,3 +21,13 @@ Learn how to use useReducer hook in action. Test how it is when components are o
 ## 🔗 Live version of app:
 
 [https://shopping-cart-gp.vercel.app](https://shopping-cart-gp.vercel.app)
+
+## Some screenshots:
+
+![](/mockups/1.png?raw=true "Home page")
+
+![](/mockups/2.png?raw=true "Home page with open basket")
+
+![](/mockups/3.png?raw=true "Page with favourite items")
+
+![](/mockups/4.png?raw=true "Shopping history")
