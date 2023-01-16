@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import cn from "classnames";
 import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
 import { CartList } from "../../organisms/cartList/CartList";
@@ -11,6 +11,14 @@ type CartProps = {
 
 export const Cart = ({ cartOpen }: CartProps) => {
   const { shoppingCartState } = useShoppingCartContext();
+
+  useEffect(() => {
+    if (shoppingCartState.cartOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [shoppingCartState.cartOpen]);
 
   return (
     <>
