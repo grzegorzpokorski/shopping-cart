@@ -1,13 +1,19 @@
 module.exports = {
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint"],
   extends: [
-    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "prettier",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:import/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "eslint-config-prettier",
   ],
+  parserOptions: {
+    project: ["tsconfig.json"],
+  },
   settings: {
     react: {
       version: "detect",
@@ -19,5 +25,6 @@ module.exports = {
       },
     },
   },
+  ignorePatterns: ["build/", "dist/", "node_modules/", "*.js", "*.jsx"],
   rules: {},
 };

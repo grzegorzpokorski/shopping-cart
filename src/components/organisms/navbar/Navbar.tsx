@@ -47,7 +47,7 @@ export const Navbar = () => {
           />
           <div ref={cartContainerRef}>
             <CartTrigger cartOpen={isCartOpen} toggleCart={toggleCart} />
-            <Cart cartOpen={isCartOpen} />
+            <Cart />
           </div>
           <div
             className={cn(
