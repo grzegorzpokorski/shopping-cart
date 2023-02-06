@@ -3,6 +3,7 @@ import {
   SortByType,
   useShoppingCartContext,
 } from "../../../context/ShoppingCartContext";
+import { useProductsContext } from "../../../providers/ProductsProvider";
 import { getCategories } from "../../../utils/getCategories";
 import { getProductsByCategory } from "../../../utils/getProductsByCategory";
 import { getSortedProducts } from "../../../utils/getSortedProducts";
@@ -12,8 +13,9 @@ import { ProductsList } from "../../organisms/productsList/ProductsList";
 
 export const HomeProductsList = () => {
   const { shoppingCartState, shoppingCartDispatch } = useShoppingCartContext();
-  const products = shoppingCartState.products.map((item) => item);
+  const { products } = useProductsContext();
   const categories = getCategories(shoppingCartState.products);
+
   return (
     <>
       <div className="flex flex-wrap items-center justify-between">

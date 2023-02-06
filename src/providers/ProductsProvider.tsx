@@ -1,10 +1,18 @@
-import React, { createContext, ReactNode, useContext, useMemo } from "react";
-import products from "../data/data.json";
+import React, {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useMemo,
+} from "react";
+import productsFromJSON from "../data/data.json";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
-type ProductType = (typeof products)[number];
+type ProductType = (typeof productsFromJSON)[number];
 
 type ProductsProviderValue = {
   products: ProductType[];
+  updateProduct: (item: ProductType) => void;
 };
 
 const ProductsContext = createContext<ProductsProviderValue | null>(null);
@@ -14,11 +22,23 @@ export const ProductsProvider = ({
 }: {
   readonly children: ReactNode;
 }) => {
+  const [products, setProducts] = useLocalStorage("products", productsFromJSON);
+
+  const updateProduct = useCallback(
+    (item: ProductType) => {
+      setProducts([
+        ...products.map((product) => (product.id === item.id ? item : product)),
+      ]);
+    },
+    [products, setProducts],
+  );
+
   const value = useMemo(
     () => ({
       products,
+      updateProduct,
     }),
-    [],
+    [products, updateProduct],
   );
   return (
     <ProductsContext.Provider value={value}>
