@@ -41,7 +41,6 @@ export type OrderType = { id: number; items: ProductInCartType[] };
 export type ShoppingCartStateType = {
   products: ProductType[];
   inCart: ProductInCartType[];
-  cartOpen: boolean;
   sortBy: SortByType;
   favourite: FavouriteType;
   orders: OrderType[];
@@ -71,7 +70,6 @@ export const ShoppingCartProvider = ({
   const shoppingCartInitialState: ShoppingCartStateType = {
     products: data,
     inCart: [],
-    cartOpen: false,
     sortBy: "DEFAULT",
     favourite: [],
     orders: [],

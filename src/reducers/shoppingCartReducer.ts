@@ -70,11 +70,6 @@ export const shoppingCartReducer = (
           ),
         ],
       };
-    case "toggle_cart":
-      return {
-        ...prevState,
-        cartOpen: !prevState.cartOpen,
-      };
     case "change_sort_by":
       return { ...prevState, sortBy: action.sortBy };
     case "change_displayed_category":

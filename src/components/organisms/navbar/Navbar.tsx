@@ -5,9 +5,9 @@ import { Cart } from "../../templates/cart/Cart";
 import { CartTrigger } from "../../molecules/cartTrigger/CartTrigger";
 import { Logo } from "../../molecules/logo/Logo";
 import cn from "classnames";
-import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
 import { MainMenu } from "../../molecules/mainMenu/MainMenu";
 import { FaHistory, FaRegHeart } from "react-icons/fa";
+import { useUIContext } from "../../../providers/UIProvider";
 
 export const Navbar = () => {
   const [isHome, setIsHome] = useState(false);
@@ -19,14 +19,10 @@ export const Navbar = () => {
     }
   }, [pathname]);
 
-  const {
-    shoppingCartDispatch,
-    shoppingCartState: { cartOpen },
-  } = useShoppingCartContext();
-  const toggleCart = () => shoppingCartDispatch({ type: "toggle_cart" });
+  const { isCartOpen, toggleCart } = useUIContext();
 
   const cartContainerRef = useRef<HTMLDivElement>(null);
-  useOnClickOutside(cartContainerRef, () => cartOpen && toggleCart());
+  useOnClickOutside(cartContainerRef, () => isCartOpen && toggleCart());
 
   return (
     <nav className="fixed top-0 z-50 w-full bg-white shadow-md">
@@ -50,13 +46,13 @@ export const Navbar = () => {
             ]}
           />
           <div ref={cartContainerRef}>
-            <CartTrigger cartOpen={cartOpen} toggleCart={toggleCart} />
-            <Cart cartOpen={cartOpen} />
+            <CartTrigger cartOpen={isCartOpen} toggleCart={toggleCart} />
+            <Cart />
           </div>
           <div
             className={cn(
               "fixed inset-0 bg-black top-16 lg:top-20 opacity-50 transition",
-              { "hidden opacity-0": !cartOpen },
+              { "hidden opacity-0": !isCartOpen },
             )}
           ></div>
         </div>
