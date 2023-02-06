@@ -20,5 +20,5 @@ export const useLocalStorage = <T>(
     localStorage.setItem(key, JSON.stringify(value));
   }, [key, value]);
 
-  return [value, setValue] as [typeof value, typeof setValue];
+  return [value, setValue] as const;
 };
