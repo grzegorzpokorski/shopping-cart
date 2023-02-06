@@ -1,11 +1,13 @@
 import React from "react";
 import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
+import { useUIContext } from "../../../providers/UIProvider";
 import { formatCurrency } from "../../../utils/formatCurrency";
 import { getTotalPrice } from "../../../utils/getTotalPrice";
 import { Button } from "../../atoms/button/Button";
 
 export const CartSummary = () => {
   const { shoppingCartState, shoppingCartDispatch } = useShoppingCartContext();
+  const { toggleCart } = useUIContext();
 
   return (
     <div className="flex flex-col justify-end border-t border-zinc-200 py-6">
@@ -46,7 +48,7 @@ export const CartSummary = () => {
               type: "place_order",
               order: shoppingCartState.inCart,
             });
-            shoppingCartDispatch({ type: "toggle_cart" });
+            toggleCart();
           }}
         >
           Złóż zamówienie
@@ -55,10 +57,7 @@ export const CartSummary = () => {
       <div className="mt-6 flex justify-center text-center text-sm">
         <p>
           lub{" "}
-          <Button
-            variant="indigo_link"
-            onClick={() => shoppingCartDispatch({ type: "toggle_cart" })}
-          >
+          <Button variant="indigo_link" onClick={toggleCart}>
             Kontynuuj zakupy
             <span aria-hidden="true"> &rarr;</span>
           </Button>
