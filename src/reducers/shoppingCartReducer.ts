@@ -9,7 +9,6 @@ export type ShoppingCartActionType =
   | { type: "remove_product_from_cart"; id: number }
   | { type: "increase_product_qty_in_cart"; id: number }
   | { type: "decrease_product_qty_in_cart"; id: number }
-  | { type: "toggle_cart" }
   | { type: "change_sort_by"; sortBy: SortByType }
   | { type: "change_displayed_category"; category: string }
   | { type: "toggle_favourite"; id: number }

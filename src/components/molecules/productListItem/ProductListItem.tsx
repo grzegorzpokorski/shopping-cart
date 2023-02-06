@@ -7,6 +7,7 @@ import {
   useShoppingCartContext,
 } from "../../../context/ShoppingCartContext";
 import { FavouriteTrigger } from "../favouriteTrigger/FavouriteTrigger";
+import { useUIContext } from "../../../providers/UIProvider";
 
 export const ProductListItem = ({
   id,
@@ -17,6 +18,7 @@ export const ProductListItem = ({
   availableAmount,
 }: ProductType) => {
   const { shoppingCartState, shoppingCartDispatch } = useShoppingCartContext();
+  const { toggleCart } = useUIContext();
 
   const ProductIsInCart = shoppingCartState.inCart
     .map((p) => p.id)
@@ -45,10 +47,7 @@ export const ProductListItem = ({
         <div className="flex justify-between items-center">
           <p>{formatCurrency(price)}</p>
           {ProductIsInCart ? (
-            <Button
-              onClick={() => shoppingCartDispatch({ type: "toggle_cart" })}
-              variant="indigo"
-            >
+            <Button onClick={toggleCart} variant="indigo">
               Zobacz w koszyku
             </Button>
           ) : (
