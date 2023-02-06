@@ -2,12 +2,11 @@ import React from "react";
 import { siteUrl } from "../../../utils/getSiteUrl";
 import { formatCurrency } from "../../../utils/formatCurrency";
 import { Button } from "../../atoms/button/Button";
-import {
-  ProductType,
-  useShoppingCartContext,
-} from "../../../context/ShoppingCartContext";
 import { FavouriteTrigger } from "../favouriteTrigger/FavouriteTrigger";
 import { useUIContext } from "../../../providers/UIProvider";
+import { useCartContext } from "../../../providers/ShoppingCartProvider";
+import { useFavouriteContext } from "../../../providers/FavouritesProvider";
+import { ProductType } from "../../../providers/ProductsProvider";
 
 export const ProductListItem = ({
   id,
@@ -17,12 +16,12 @@ export const ProductListItem = ({
   image,
   availableAmount,
 }: ProductType) => {
-  const { shoppingCartState, shoppingCartDispatch } = useShoppingCartContext();
   const { toggleCart } = useUIContext();
+  const { cart, addToCart } = useCartContext();
+  const { favourite, addToFavourite, removeFromFavourite } =
+    useFavouriteContext();
 
-  const ProductIsInCart = shoppingCartState.inCart
-    .map((p) => p.id)
-    .includes(id);
+  const ProductIsInCart = cart.map((p) => p.id).includes(id);
 
   return (
     <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 bg-white p-4 rounded group">
@@ -35,8 +34,12 @@ export const ProductListItem = ({
           className="object-contain object-center w-full h-full group-hover:scale-[1.025] transition duration-300"
         />
         <FavouriteTrigger
-          checked={shoppingCartState.favourite.includes(id)}
-          onClick={() => shoppingCartDispatch({ type: "toggle_favourite", id })}
+          checked={favourite.includes(id)}
+          onClick={() =>
+            favourite.includes(id)
+              ? removeFromFavourite(id)
+              : addToFavourite(id)
+          }
         />
       </div>
       <div className="flex flex-col gap-4">
@@ -53,13 +56,7 @@ export const ProductListItem = ({
           ) : (
             <Button
               disabled={Boolean(!availableAmount)}
-              onClick={() =>
-                shoppingCartDispatch({
-                  type: "add_product_to_cart",
-                  id,
-                  price,
-                })
-              }
+              onClick={() => addToCart({ id, price, qty: 1 })}
             >
               {availableAmount ? "Dodaj do koszyka" : "Brak towaru"}
             </Button>

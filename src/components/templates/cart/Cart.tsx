@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import cn from "classnames";
-import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
 import { CartList } from "../../organisms/cartList/CartList";
 import { EmptyCart } from "../../molecules/emptyCart/EmptyCart";
 import { CartSummary } from "../../molecules/cartSummary/CartSummary";
 import { useUIContext } from "../../../providers/UIProvider";
+import { useCartContext } from "../../../providers/ShoppingCartProvider";
 
 export const Cart = () => {
-  const { shoppingCartState } = useShoppingCartContext();
+  const { cart } = useCartContext();
   const { isCartOpen } = useUIContext();
 
   useEffect(() => {
@@ -28,13 +28,11 @@ export const Cart = () => {
         )}
       >
         <h2 className="text-lg font-bold text-center mb-2 border-b-2 pb-6 md:pb-8">
-          {shoppingCartState.inCart.length > 0
-            ? "Zawartość koszyka"
-            : "Twoj koszyk jest pusty"}
+          {cart.length > 0 ? "Zawartość koszyka" : "Twoj koszyk jest pusty"}
         </h2>
-        {shoppingCartState.inCart.length > 0 ? (
+        {cart.length > 0 ? (
           <>
-            <CartList products={shoppingCartState.inCart} />
+            <CartList productsInCart={cart} />
             <CartSummary />
           </>
         ) : (

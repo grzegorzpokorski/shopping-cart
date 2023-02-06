@@ -3,17 +3,21 @@ import {
   ProductInCartType,
   useShoppingCartContext,
 } from "../../../context/ShoppingCartContext";
+import { useOrdersContext } from "../../../providers/OrdersProvider";
+import { useProductsContext } from "../../../providers/ProductsProvider";
+import { CartItemType } from "../../../providers/ShoppingCartProvider";
 import { formatCurrency } from "../../../utils/formatCurrency";
 import { getTotalPrice } from "../../../utils/getTotalPrice";
 import { Button } from "../../atoms/button/Button";
 
 type OrderProps = {
   id: number;
-  items: ProductInCartType[];
+  items: CartItemType[];
 };
 
 export const Order = ({ id, items }: OrderProps) => {
-  const { shoppingCartDispatch } = useShoppingCartContext();
+  const { cancelOrder } = useOrdersContext();
+  const { updateProduct, products } = useProductsContext();
 
   return (
     <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 bg-white p-4 rounded">
@@ -29,13 +33,19 @@ export const Order = ({ id, items }: OrderProps) => {
         </p>
         <Button
           variant="red"
-          onClick={() =>
-            shoppingCartDispatch({
-              type: "cancel_order",
-              orderId: id,
-              items: items,
-            })
-          }
+          onClick={() => {
+            cancelOrder(id, items);
+            items.map((item) => {
+              products.map((product) => {
+                if (product.id === item.id) {
+                  updateProduct({
+                    ...product,
+                    availableAmount: product.availableAmount + item.qty,
+                  });
+                }
+              });
+            });
+          }}
         >
           anuluj zamówienie
         </Button>
@@ -54,8 +64,8 @@ export const Order = ({ id, items }: OrderProps) => {
 };
 
 const Item = ({ id, qty, price }: ProductInCartType) => {
-  const { shoppingCartState } = useShoppingCartContext();
-  const product = shoppingCartState.products.find((p) => p.id === id);
+  const { products } = useProductsContext();
+  const product = products.find((p) => p.id === id);
 
   if (product) {
     return (

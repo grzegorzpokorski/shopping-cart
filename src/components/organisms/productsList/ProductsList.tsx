@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductType } from "../../../context/ShoppingCartContext";
+import { ProductType } from "../../../providers/ProductsProvider";
 import { ProductListItem } from "../../molecules/productListItem/ProductListItem";
 
 type ProductsListProps = {

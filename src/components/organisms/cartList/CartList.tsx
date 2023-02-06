@@ -1,23 +1,19 @@
 import React from "react";
-import {
-  ProductInCartType,
-  useShoppingCartContext,
-} from "../../../context/ShoppingCartContext";
+import { useProductsContext } from "../../../providers/ProductsProvider";
+import { CartItemType } from "../../../providers/ShoppingCartProvider";
 import { CartListItem } from "../../molecules/cartListItem/CartListItem";
 
 type CartListProps = {
-  products: ProductInCartType[];
+  productsInCart: CartItemType[];
 };
 
-export const CartList = ({ products }: CartListProps) => {
-  const { shoppingCartState } = useShoppingCartContext();
+export const CartList = ({ productsInCart }: CartListProps) => {
+  const { products } = useProductsContext();
 
   return (
     <ul className="-my-6 divide-y divide-gray-200">
-      {products.map((item) => {
-        const product = shoppingCartState.products.find(
-          (p) => p.id === item.id,
-        );
+      {productsInCart.map((item) => {
+        const product = products.find((p) => p.id === item.id);
         if (product)
           return <CartListItem key={item.id} {...product} qty={item.qty} />;
       })}

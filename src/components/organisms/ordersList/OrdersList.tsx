@@ -1,5 +1,5 @@
 import React from "react";
-import { OrderType } from "../../../context/ShoppingCartContext";
+import { OrderType } from "../../../providers/OrdersProvider";
 import { Order } from "../../molecules/order/Order";
 
 type OrdersType = {

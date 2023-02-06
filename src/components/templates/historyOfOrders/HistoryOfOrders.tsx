@@ -1,17 +1,17 @@
 import React from "react";
-import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
+import { useOrdersContext } from "../../../providers/OrdersProvider";
 import { Link } from "../../atoms/link/Link";
 import { Title } from "../../atoms/title/Title";
 import { OrdersList } from "../../organisms/ordersList/OrdersList";
 
 export const HistoryOfOrders = () => {
-  const { shoppingCartState } = useShoppingCartContext();
+  const { orders } = useOrdersContext();
 
-  if (shoppingCartState.orders.length > 0) {
+  if (orders.length > 0) {
     return (
       <>
         <Title as="h1">Historia zakupów</Title>
-        <OrdersList orders={shoppingCartState.orders} />
+        <OrdersList orders={orders} />
       </>
     );
   }

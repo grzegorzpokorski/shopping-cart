@@ -8,11 +8,12 @@ import React, {
 import productsFromJSON from "../data/data.json";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
-type ProductType = (typeof productsFromJSON)[number];
+export type ProductType = (typeof productsFromJSON)[number];
 
 type ProductsProviderValue = {
   products: ProductType[];
   updateProduct: (item: ProductType) => void;
+  decreaseAvailableAmount: (id: number, orderedAmount: number) => void;
 };
 
 const ProductsContext = createContext<ProductsProviderValue | null>(null);
@@ -33,12 +34,29 @@ export const ProductsProvider = ({
     [products, setProducts],
   );
 
+  const decreaseAvailableAmount = useCallback(
+    (id: number, orderedAmount: number) => {
+      setProducts([
+        ...products.map((item) =>
+          item.id === id
+            ? {
+                ...item,
+                availableAmount: item.availableAmount - orderedAmount,
+              }
+            : { ...item },
+        ),
+      ]);
+    },
+    [products, setProducts],
+  );
+
   const value = useMemo(
     () => ({
       products,
       updateProduct,
+      decreaseAvailableAmount,
     }),
-    [products, updateProduct],
+    [decreaseAvailableAmount, products, updateProduct],
   );
   return (
     <ProductsContext.Provider value={value}>

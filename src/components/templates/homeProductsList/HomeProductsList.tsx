@@ -1,26 +1,20 @@
 import React from "react";
-import {
-  SortByType,
-  useShoppingCartContext,
-} from "../../../context/ShoppingCartContext";
 import { useProductsContext } from "../../../providers/ProductsProvider";
-import { getCategories } from "../../../utils/getCategories";
-import { getProductsByCategory } from "../../../utils/getProductsByCategory";
-import { getSortedProducts } from "../../../utils/getSortedProducts";
-import { SelectInput } from "../../atoms/selectInput/SelectInput";
+// import { getCategories } from "../../../utils/getCategories";
+// import { getProductsByCategory } from "../../../utils/getProductsByCategory";
+// import { getSortedProducts } from "../../../utils/getSortedProducts";
+// import { SelectInput } from "../../atoms/selectInput/SelectInput";
 import { Title } from "../../atoms/title/Title";
 import { ProductsList } from "../../organisms/productsList/ProductsList";
 
 export const HomeProductsList = () => {
-  const { shoppingCartState, shoppingCartDispatch } = useShoppingCartContext();
   const { products } = useProductsContext();
-  const categories = getCategories(shoppingCartState.products);
 
   return (
     <>
       <div className="flex flex-wrap items-center justify-between">
         <Title as="h2">Wszystkie przedmioty</Title>
-        <div className="flex flex-wrap gap-3 mb-6">
+        {/* <div className="flex flex-wrap gap-3 mb-6">
           <SelectInput
             label="kategoria"
             name="kategoria"
@@ -63,15 +57,16 @@ export const HomeProductsList = () => {
               })
             }
           />
-        </div>
+        </div> */}
       </div>
-      <ProductsList
+      {/* <ProductsList
         products={getProductsByCategory(
           getSortedProducts(products, shoppingCartState.sortBy),
           shoppingCartState.category,
           categories,
         )}
-      />
+      /> */}
+      <ProductsList products={products} />
     </>
   );
 };

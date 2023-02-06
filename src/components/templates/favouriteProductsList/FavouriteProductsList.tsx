@@ -1,20 +1,20 @@
 import React from "react";
-import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
+import { useFavouriteContext } from "../../../providers/FavouritesProvider";
+import { useProductsContext } from "../../../providers/ProductsProvider";
 import { Link } from "../../atoms/link/Link";
 import { Title } from "../../atoms/title/Title";
 import { ProductsList } from "../../organisms/productsList/ProductsList";
 
 export const FavouriteProductsList = () => {
-  const { shoppingCartState } = useShoppingCartContext();
-  const products = shoppingCartState.products.filter((p) =>
-    shoppingCartState.favourite.includes(p.id),
-  );
+  const { products } = useProductsContext();
+  const { favourite } = useFavouriteContext();
+  const toDisplay = products.filter((p) => favourite.includes(p.id));
 
-  if (products.length > 0) {
+  if (toDisplay.length > 0) {
     return (
       <>
         <Title as="h1">Ulubione przedmioty</Title>
-        <ProductsList products={products} />
+        <ProductsList products={toDisplay} />
       </>
     );
   }

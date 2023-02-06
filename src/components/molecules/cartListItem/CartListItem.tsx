@@ -1,14 +1,11 @@
 import React from "react";
-import {
-  ProductInCartType,
-  ProductType,
-  useShoppingCartContext,
-} from "../../../context/ShoppingCartContext";
 import { formatCurrency } from "../../../utils/formatCurrency";
 import { Button } from "../../atoms/button/Button";
 import { FaMinus, FaPlus, FaTrashAlt } from "react-icons/fa";
+import { useCartContext } from "../../../providers/ShoppingCartProvider";
+import { ProductType } from "../../../providers/ProductsProvider";
 
-type CartListItemProps = ProductType & Pick<ProductInCartType, "qty">;
+type CartListItemProps = ProductType & { qty: number };
 
 export const CartListItem = ({
   id,
@@ -19,7 +16,8 @@ export const CartListItem = ({
   availableAmount,
   qty,
 }: CartListItemProps) => {
-  const { shoppingCartDispatch } = useShoppingCartContext();
+  const { removeFromCart, increaseProductQty, decreaseProductQty } =
+    useCartContext();
 
   return (
     <li className="flex flex-col gap-4 py-6">
@@ -39,15 +37,7 @@ export const CartListItem = ({
             <p className="mt-1 text-sm text-gray-500">{category}</p>
           </div>
         </div>
-        <Button
-          variant="indigo_link"
-          onClick={() =>
-            shoppingCartDispatch({
-              type: "remove_product_from_cart",
-              id: id,
-            })
-          }
-        >
+        <Button variant="indigo_link" onClick={() => removeFromCart(id)}>
           <span className="sr-only">usuń z koszyka</span>
           <FaTrashAlt aria-hidden="true" />
         </Button>
@@ -57,12 +47,7 @@ export const CartListItem = ({
           <Button
             variant="quantity_button"
             disabled={qty === 1}
-            onClick={() =>
-              shoppingCartDispatch({
-                type: "decrease_product_qty_in_cart",
-                id: id,
-              })
-            }
+            onClick={() => decreaseProductQty(id)}
           >
             <span className="sr-only">zmniejsz</span>
             <FaMinus className="text-center" />
@@ -74,12 +59,7 @@ export const CartListItem = ({
           <Button
             variant="quantity_button"
             disabled={qty === availableAmount ? true : false}
-            onClick={() =>
-              shoppingCartDispatch({
-                type: "increase_product_qty_in_cart",
-                id: id,
-              })
-            }
+            onClick={() => increaseProductQty(id)}
           >
             <span className="sr-only">zwiększ</span>
             <FaPlus className="text-center block" />
