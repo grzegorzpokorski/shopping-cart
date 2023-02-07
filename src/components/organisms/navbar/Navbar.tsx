@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import cn from "classnames";
+import ReactFocusLock from "react-focus-lock";
 import { useLocation } from "react-router-dom";
 import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
 import { Cart } from "../../templates/cart/Cart";
 import { CartTrigger } from "../../molecules/cartTrigger/CartTrigger";
 import { Logo } from "../../molecules/logo/Logo";
-import cn from "classnames";
 import { MainMenu } from "../../molecules/mainMenu/MainMenu";
 import { FaHistory, FaRegHeart } from "react-icons/fa";
 import { useUIContext } from "../../../providers/UIProvider";
@@ -45,10 +46,14 @@ export const Navbar = () => {
               },
             ]}
           />
-          <div ref={cartContainerRef}>
+          <ReactFocusLock
+            as="div"
+            ref={cartContainerRef}
+            disabled={!isCartOpen}
+          >
             <CartTrigger cartOpen={isCartOpen} toggleCart={toggleCart} />
             <Cart />
-          </div>
+          </ReactFocusLock>
           <div
             className={cn(
               "fixed inset-0 bg-black top-16 lg:top-20 opacity-50 transition",
