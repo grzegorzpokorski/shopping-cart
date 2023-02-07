@@ -16,6 +16,7 @@ export const FavouriteTrigger = ({
       <Button
         variant={checked ? "favourite_trigger_active" : "favourite_trigger"}
         onClick={onClick}
+        aria-pressed={checked}
       >
         {checked ? (
           <>
