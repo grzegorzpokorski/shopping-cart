@@ -3,21 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { ProductListItem } from "./ProductListItem";
 import { AppProviders } from "../../../providers/AppProviders";
 import { ProductType } from "../../../providers/ShoppingCartProvider";
-
-const product = {
-  id: 0,
-  name: "Logitech M330 silent",
-  price: 149.99,
-  category: "mysz",
-  image: {
-    url: "/images/logitech-m330-silent.jpg",
-    height: 532,
-    width: 600,
-    alt: "czarna myszka logitech m330 silent ukazana z góry",
-  },
-  availableAmount: 1,
-};
-const unavailableProduct = { ...product, availableAmount: 0 };
+import { product, unavailableProduct } from "../../../tests/utils";
 
 describe("<ProductListItem>", () => {
   const renderItem = (productData: ProductType) => {
