@@ -15,10 +15,8 @@ import {
 } from "../reducers/ShoppingCartReducer";
 
 export type ProductType = (typeof data)[number];
-export type ProductInCartType = {
-  id: number;
+export type ProductInCartType = Pick<ProductType, "id" | "price"> & {
   qty: number;
-  price: number;
 };
 export type SortByType = "DEFAULT" | "PRICE_DESC" | "PRICE_ASC";
 export type FavouriteType = number[];
