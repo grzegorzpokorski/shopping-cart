@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "prepare": "husky install",
-    "test": "vitest"
+    "test": "vitest",
+    "test:once": "vitest run"
   },
   "dependencies": {
     "react": "^18.2.0",
