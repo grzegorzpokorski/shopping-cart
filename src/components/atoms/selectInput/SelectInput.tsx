@@ -33,7 +33,7 @@ export const SelectInput = <T extends string>({
       <select
         name={name}
         id={id ? id : generatedId}
-        className="rounded text-sm border-zinc-700 focus:ring-indigo-600 focus:border-indigo-600"
+        className="rounded text-sm border-zinc-700 focus:ring-inset focus:ring-zinc-600 focus:border-zinc-600 hover:ring-inset hover:ring-1 hover:ring-zinc-500 cursor-pointer"
         value={currentValue}
         onChange={(e) => onChange(e)}
       >
