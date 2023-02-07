@@ -2,7 +2,7 @@ import React from "react";
 import {
   SortByType,
   useShoppingCartContext,
-} from "../../../context/ShoppingCartContext";
+} from "../../../providers/ShoppingCartProvider";
 import { getCategories } from "../../../utils/getCategories";
 import { getProductsByCategory } from "../../../utils/getProductsByCategory";
 import { getSortedProducts } from "../../../utils/getSortedProducts";
@@ -11,7 +11,7 @@ import { Title } from "../../atoms/title/Title";
 import { ProductsList } from "../../organisms/productsList/ProductsList";
 
 export const HomeProductsList = () => {
-  const { shoppingCartState, shoppingCartDispatch } = useShoppingCartContext();
+  const { shoppingCartState, dispatch } = useShoppingCartContext();
   const products = shoppingCartState.products.map((item) => item);
   const categories = getCategories(shoppingCartState.products);
   return (
@@ -30,7 +30,7 @@ export const HomeProductsList = () => {
               }),
             ]}
             onChange={(e) =>
-              shoppingCartDispatch({
+              dispatch({
                 type: "change_displayed_category",
                 category: e.target.value,
               })
@@ -55,7 +55,7 @@ export const HomeProductsList = () => {
               },
             )}
             onChange={(e) =>
-              shoppingCartDispatch({
+              dispatch({
                 type: "change_sort_by",
                 sortBy: e.target.value as SortByType,
               })

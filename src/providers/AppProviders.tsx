@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { ShoppingCartProvider } from "../context/ShoppingCartContext";
+import { ShoppingCartProvider } from "./ShoppingCartProvider";
 import { UIProvider } from "./UIProvider";
 
 export const AppProviders = ({

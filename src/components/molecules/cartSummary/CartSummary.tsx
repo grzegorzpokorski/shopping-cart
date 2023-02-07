@@ -1,12 +1,12 @@
 import React from "react";
-import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
+import { useShoppingCartContext } from "../../../providers/ShoppingCartProvider";
 import { useUIContext } from "../../../providers/UIProvider";
 import { formatCurrency } from "../../../utils/formatCurrency";
 import { getTotalPrice } from "../../../utils/getTotalPrice";
 import { Button } from "../../atoms/button/Button";
 
 export const CartSummary = () => {
-  const { shoppingCartState, shoppingCartDispatch } = useShoppingCartContext();
+  const { shoppingCartState, dispatch } = useShoppingCartContext();
   const { toggleCart } = useUIContext();
 
   return (
@@ -23,7 +23,7 @@ export const CartSummary = () => {
 
                 if (product) return { qty: item.qty, price: product.price };
 
-                shoppingCartDispatch({
+                dispatch({
                   type: "remove_product_from_cart",
                   id: item.id,
                 });
@@ -38,13 +38,13 @@ export const CartSummary = () => {
           variant="indigo"
           onClick={() => {
             shoppingCartState.inCart.map((item) =>
-              shoppingCartDispatch({
+              dispatch({
                 type: "decrease_available_amount",
                 id: item.id,
                 orderedAmount: item.qty,
               }),
             );
-            shoppingCartDispatch({
+            dispatch({
               type: "place_order",
               order: shoppingCartState.inCart,
             });

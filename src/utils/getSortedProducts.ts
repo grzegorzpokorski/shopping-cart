@@ -1,4 +1,4 @@
-import { ProductType, SortByType } from "../context/ShoppingCartContext";
+import { ProductType, SortByType } from "../providers/ShoppingCartProvider";
 
 export const getSortedProducts = (products: ProductType[], by: SortByType) => {
   switch (by) {

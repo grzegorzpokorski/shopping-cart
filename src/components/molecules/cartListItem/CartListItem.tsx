@@ -3,7 +3,7 @@ import {
   ProductInCartType,
   ProductType,
   useShoppingCartContext,
-} from "../../../context/ShoppingCartContext";
+} from "../../../providers/ShoppingCartProvider";
 import { formatCurrency } from "../../../utils/formatCurrency";
 import { Button } from "../../atoms/button/Button";
 import { FaMinus, FaPlus, FaTrashAlt } from "react-icons/fa";
@@ -19,7 +19,7 @@ export const CartListItem = ({
   availableAmount,
   qty,
 }: CartListItemProps) => {
-  const { shoppingCartDispatch } = useShoppingCartContext();
+  const { dispatch } = useShoppingCartContext();
 
   return (
     <li className="flex flex-col gap-4 py-6">
@@ -42,7 +42,7 @@ export const CartListItem = ({
         <Button
           variant="indigo_link"
           onClick={() =>
-            shoppingCartDispatch({
+            dispatch({
               type: "remove_product_from_cart",
               id: id,
             })
@@ -58,7 +58,7 @@ export const CartListItem = ({
             variant="quantity_button"
             disabled={qty === 1}
             onClick={() =>
-              shoppingCartDispatch({
+              dispatch({
                 type: "decrease_product_qty_in_cart",
                 id: id,
               })
@@ -75,7 +75,7 @@ export const CartListItem = ({
             variant="quantity_button"
             disabled={qty === availableAmount ? true : false}
             onClick={() =>
-              shoppingCartDispatch({
+              dispatch({
                 type: "increase_product_qty_in_cart",
                 id: id,
               })

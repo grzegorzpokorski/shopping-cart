@@ -2,7 +2,7 @@ import React from "react";
 import {
   ProductInCartType,
   useShoppingCartContext,
-} from "../../../context/ShoppingCartContext";
+} from "../../../providers/ShoppingCartProvider";
 import { formatCurrency } from "../../../utils/formatCurrency";
 import { getTotalPrice } from "../../../utils/getTotalPrice";
 import { Button } from "../../atoms/button/Button";
@@ -13,7 +13,7 @@ type OrderProps = {
 };
 
 export const Order = ({ id, items }: OrderProps) => {
-  const { shoppingCartDispatch } = useShoppingCartContext();
+  const { dispatch } = useShoppingCartContext();
 
   return (
     <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 bg-white p-4 rounded">
@@ -30,7 +30,7 @@ export const Order = ({ id, items }: OrderProps) => {
         <Button
           variant="red"
           onClick={() =>
-            shoppingCartDispatch({
+            dispatch({
               type: "cancel_order",
               orderId: id,
               items: items,

@@ -2,9 +2,9 @@ import {
   ProductInCartType,
   ShoppingCartStateType,
   SortByType,
-} from "../context/ShoppingCartContext";
+} from "../providers/ShoppingCartProvider";
 
-export type ShoppingCartActionType =
+export type ShoppingCartReducerActions =
   | { type: "add_product_to_cart"; id: number; price: number }
   | { type: "remove_product_from_cart"; id: number }
   | { type: "increase_product_qty_in_cart"; id: number }
@@ -25,15 +25,15 @@ export type ShoppingCartActionType =
     };
 
 export const shoppingCartReducer = (
-  prevState: ShoppingCartStateType,
-  action: ShoppingCartActionType,
+  state: ShoppingCartStateType,
+  action: ShoppingCartReducerActions,
 ) => {
   switch (action.type) {
     case "add_product_to_cart": {
       return {
-        ...prevState,
+        ...state,
         inCart: [
-          ...prevState.inCart,
+          ...state.inCart,
           {
             id: action.id,
             qty: 1,
@@ -44,14 +44,14 @@ export const shoppingCartReducer = (
     }
     case "remove_product_from_cart":
       return {
-        ...prevState,
-        inCart: prevState.inCart.filter((p) => p.id !== action.id),
+        ...state,
+        inCart: state.inCart.filter((p) => p.id !== action.id),
       };
     case "increase_product_qty_in_cart":
       return {
-        ...prevState,
+        ...state,
         inCart: [
-          ...prevState.inCart.map((item) =>
+          ...state.inCart.map((item) =>
             item.id === action.id
               ? { ...item, qty: item.qty + 1 }
               : { ...item },
@@ -60,9 +60,9 @@ export const shoppingCartReducer = (
       };
     case "decrease_product_qty_in_cart":
       return {
-        ...prevState,
+        ...state,
         inCart: [
-          ...prevState.inCart.map((item) =>
+          ...state.inCart.map((item) =>
             item.id === action.id
               ? { ...item, qty: item.qty - 1 }
               : { ...item },
@@ -70,36 +70,34 @@ export const shoppingCartReducer = (
         ],
       };
     case "change_sort_by":
-      return { ...prevState, sortBy: action.sortBy };
+      return { ...state, sortBy: action.sortBy };
     case "change_displayed_category":
-      return { ...prevState, category: action.category };
+      return { ...state, category: action.category };
     case "toggle_favourite": {
-      if (prevState.favourite.includes(action.id)) {
+      if (state.favourite.includes(action.id)) {
         return {
-          ...prevState,
-          favourite: [
-            ...prevState.favourite.filter((item) => item !== action.id),
-          ],
+          ...state,
+          favourite: [...state.favourite.filter((item) => item !== action.id)],
         };
       }
       return {
-        ...prevState,
-        favourite: [...prevState.favourite, action.id],
+        ...state,
+        favourite: [...state.favourite, action.id],
       };
     }
     case "place_order": {
       return {
-        ...prevState,
+        ...state,
         inCart: [],
-        orders: [{ id: Date.now(), items: action.order }, ...prevState.orders],
-        products: prevState.products,
+        orders: [{ id: Date.now(), items: action.order }, ...state.orders],
+        products: state.products,
       };
     }
     case "decrease_available_amount":
       return {
-        ...prevState,
+        ...state,
         products: [
-          ...prevState.products.map((item) =>
+          ...state.products.map((item) =>
             item.id === action.id
               ? {
                   ...item,
@@ -115,10 +113,10 @@ export const shoppingCartReducer = (
         return item ? item.qty : 0;
       };
       return {
-        ...prevState,
-        orders: prevState.orders.filter((order) => order.id !== action.orderId),
+        ...state,
+        orders: state.orders.filter((order) => order.id !== action.orderId),
         products: [
-          ...prevState.products.map((item) => {
+          ...state.products.map((item) => {
             return {
               ...item,
               availableAmount: item.availableAmount + getQty(item.id),
@@ -128,6 +126,6 @@ export const shoppingCartReducer = (
       };
     }
     default:
-      return prevState;
+      return state;
   }
 };

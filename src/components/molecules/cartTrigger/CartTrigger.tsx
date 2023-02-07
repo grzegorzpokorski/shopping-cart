@@ -1,6 +1,6 @@
 import React from "react";
 import { FaShoppingBasket, FaPlus } from "react-icons/fa";
-import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
+import { useShoppingCartContext } from "../../../providers/ShoppingCartProvider";
 import { getShoppingCartProductsCount } from "../../../utils/getShoppingCartProductsCount";
 import { Button } from "../../atoms/button/Button";
 

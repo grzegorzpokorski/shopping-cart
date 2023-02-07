@@ -1,5 +1,5 @@
 import React from "react";
-import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
+import { useShoppingCartContext } from "../../../providers/ShoppingCartProvider";
 import { Link } from "../../atoms/link/Link";
 import { Title } from "../../atoms/title/Title";
 import { OrdersList } from "../../organisms/ordersList/OrdersList";

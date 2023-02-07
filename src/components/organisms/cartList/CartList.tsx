@@ -2,7 +2,7 @@ import React from "react";
 import {
   ProductInCartType,
   useShoppingCartContext,
-} from "../../../context/ShoppingCartContext";
+} from "../../../providers/ShoppingCartProvider";
 import { CartListItem } from "../../molecules/cartListItem/CartListItem";
 
 type CartListProps = {

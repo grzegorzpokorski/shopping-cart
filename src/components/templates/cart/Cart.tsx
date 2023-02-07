@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import cn from "classnames";
-import { useShoppingCartContext } from "../../../context/ShoppingCartContext";
+import { useShoppingCartContext } from "../../../providers/ShoppingCartProvider";
 import { CartList } from "../../organisms/cartList/CartList";
 import { EmptyCart } from "../../molecules/emptyCart/EmptyCart";
 import { CartSummary } from "../../molecules/cartSummary/CartSummary";

@@ -1,4 +1,4 @@
-import { ProductInCartType } from "../context/ShoppingCartContext";
+import { ProductInCartType } from "../providers/ShoppingCartProvider";
 
 export const getShoppingCartProductsCount = (products: ProductInCartType[]) =>
   products.reduce((sum, product) => {

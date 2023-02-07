@@ -1,4 +1,4 @@
-import { ProductType } from "../context/ShoppingCartContext";
+import { ProductType } from "../providers/ShoppingCartProvider";
 
 export const getProductsByCategory = (
   products: ProductType[],

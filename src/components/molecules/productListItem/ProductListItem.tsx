@@ -5,7 +5,7 @@ import { Button } from "../../atoms/button/Button";
 import {
   ProductType,
   useShoppingCartContext,
-} from "../../../context/ShoppingCartContext";
+} from "../../../providers/ShoppingCartProvider";
 import { FavouriteTrigger } from "../favouriteTrigger/FavouriteTrigger";
 import { useUIContext } from "../../../providers/UIProvider";
 
@@ -17,7 +17,7 @@ export const ProductListItem = ({
   image,
   availableAmount,
 }: ProductType) => {
-  const { shoppingCartState, shoppingCartDispatch } = useShoppingCartContext();
+  const { shoppingCartState, dispatch } = useShoppingCartContext();
   const { toggleCart } = useUIContext();
 
   const ProductIsInCart = shoppingCartState.inCart
@@ -36,7 +36,7 @@ export const ProductListItem = ({
         />
         <FavouriteTrigger
           checked={shoppingCartState.favourite.includes(id)}
-          onClick={() => shoppingCartDispatch({ type: "toggle_favourite", id })}
+          onClick={() => dispatch({ type: "toggle_favourite", id })}
         />
       </div>
       <div className="flex flex-col gap-4">
@@ -54,7 +54,7 @@ export const ProductListItem = ({
             <Button
               disabled={Boolean(!availableAmount)}
               onClick={() =>
-                shoppingCartDispatch({
+                dispatch({
                   type: "add_product_to_cart",
                   id,
                   price,
