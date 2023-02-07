@@ -9,5 +9,5 @@ export const getProductsByCategory = (
     return products.filter((product) => product.category === category);
   }
 
-  return products;
+  return [];
 };

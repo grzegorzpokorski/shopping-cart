@@ -12,8 +12,13 @@ import { ProductsList } from "../../organisms/productsList/ProductsList";
 
 export const HomeProductsList = () => {
   const { shoppingCartState, dispatch } = useShoppingCartContext();
-  const products = shoppingCartState.products.map((item) => item);
+  const products = shoppingCartState.products;
   const categories = getCategories(shoppingCartState.products);
+  const productsFromCategory = getProductsByCategory(
+    getSortedProducts(products, shoppingCartState.sortBy),
+    shoppingCartState.category,
+    categories,
+  );
   return (
     <>
       <div className="flex flex-wrap items-center justify-between">
@@ -24,7 +29,7 @@ export const HomeProductsList = () => {
             name="kategoria"
             currentValue={shoppingCartState.category}
             options={[
-              { label: "wszystko", value: "all" },
+              { label: "wszystko", value: "" },
               ...categories.map((category) => {
                 return { label: category, value: category };
               }),
@@ -64,11 +69,9 @@ export const HomeProductsList = () => {
         </div>
       </div>
       <ProductsList
-        products={getProductsByCategory(
-          getSortedProducts(products, shoppingCartState.sortBy),
-          shoppingCartState.category,
-          categories,
-        )}
+        products={
+          productsFromCategory.length > 0 ? productsFromCategory : products
+        }
       />
     </>
   );
