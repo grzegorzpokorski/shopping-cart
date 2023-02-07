@@ -12,10 +12,9 @@ import { ProductsList } from "../../organisms/productsList/ProductsList";
 
 export const HomeProductsList = () => {
   const { shoppingCartState, dispatch } = useShoppingCartContext();
-  const products = shoppingCartState.products;
   const categories = getCategories(shoppingCartState.products);
   const productsFromCategory = getProductsByCategory(
-    getSortedProducts(products, shoppingCartState.sortBy),
+    getSortedProducts(shoppingCartState.products, shoppingCartState.sortBy),
     shoppingCartState.category,
     categories,
   );
@@ -70,7 +69,9 @@ export const HomeProductsList = () => {
       </div>
       <ProductsList
         products={
-          productsFromCategory.length > 0 ? productsFromCategory : products
+          productsFromCategory.length > 0
+            ? productsFromCategory
+            : shoppingCartState.products
         }
       />
     </>
