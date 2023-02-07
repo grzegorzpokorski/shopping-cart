@@ -5,7 +5,7 @@
 module.exports = {
   root: true,
   parser: "@typescript-eslint/parser",
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "testing-library"],
   extends: [
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
@@ -16,7 +16,7 @@ module.exports = {
     "prettier",
   ],
   parserOptions: {
-    project: ["tsconfig.json"],
+    project: ["./tsconfig.json"],
   },
   settings: {
     react: {
@@ -24,5 +24,7 @@ module.exports = {
     },
   },
   ignorePatterns: ["build/", "dist/", "node_modules/", "*.js", "*.jsx"],
-  rules: {},
+  rules: {
+    "react/react-in-jsx-scope": "off",
+  },
 };
