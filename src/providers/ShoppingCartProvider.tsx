@@ -53,7 +53,7 @@ export const ShoppingCartProvider = ({
     sortBy: "DEFAULT",
     favourite: [],
     orders: [],
-    category: "all",
+    category: "",
   };
 
   const [initState, setInitState] = useLocalStorage(
