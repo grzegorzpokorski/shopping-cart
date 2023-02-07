@@ -4,13 +4,14 @@ Simple shopping cart app which allows to add items to cart, manage them in it an
 
 ## 📍 Purpose of creating this app:
 
-Learn how to use useReducer hook in action. Test how it is when components are organised in atomic design methodology.
+Learn how to use useReducer hook in action. Test how it is when components are organised in atomic design methodology. Learn to write unit tests.
 
 ## 🛠️ Used tools and technologies:
 
-- react
-- tailwind CSS
-- vite
+- React
+- TailwindCSS
+- Vite
+- Vitest + React Testing Library
 
 ## ⚙️ How to run this app locally on my computer?
 
