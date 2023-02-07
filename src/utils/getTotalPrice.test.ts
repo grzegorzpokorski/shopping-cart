@@ -23,6 +23,6 @@ console.log(getTotalPrice(items));
 
 describe("getTotalPrice()", () => {
   it("should return total price by given items", () => {
-    expect(getTotalPrice(items)).toEqual(Number(929.7).toFixed(2));
+    expect(getTotalPrice(items)).toEqual(929.7);
   });
 });
