@@ -1,13 +1,35 @@
 import React from "react";
-import { useShoppingCartContext } from "../../../providers/ShoppingCartProvider";
+import {
+  ProductInCartType,
+  ProductType,
+  useShoppingCartContext,
+} from "../../../providers/ShoppingCartProvider";
 import { useUIContext } from "../../../providers/UIProvider";
 import { formatCurrency } from "../../../utils/formatCurrency";
+import { getProductById } from "../../../utils/getProductById";
 import { getTotalPrice } from "../../../utils/getTotalPrice";
 import { Button } from "../../atoms/button/Button";
 
 export const CartSummary = () => {
   const { shoppingCartState, dispatch } = useShoppingCartContext();
   const { toggleCart } = useUIContext();
+
+  const bindCartItemsWithPrices = (
+    inCart: ProductInCartType[],
+    products: ProductType[],
+  ) => {
+    const cartItemsWithPrices = inCart.map((cartItem) => {
+      const product = getProductById(cartItem.id, products);
+
+      if (!product) {
+        return { ...cartItem, price: 0 };
+      }
+
+      return { ...cartItem, price: product.price };
+    });
+
+    return cartItemsWithPrices;
+  };
 
   return (
     <div className="flex flex-col justify-end border-t border-zinc-200 py-6">
@@ -16,19 +38,10 @@ export const CartSummary = () => {
         <p>
           {formatCurrency(
             getTotalPrice(
-              shoppingCartState.inCart.map((item) => {
-                const product = shoppingCartState.products.find(
-                  (p) => p.id === item.id,
-                );
-
-                if (product) return { qty: item.qty, price: product.price };
-
-                dispatch({
-                  type: "remove_product_from_cart",
-                  id: item.id,
-                });
-                return { qty: item.qty, price: 0 };
-              }),
+              bindCartItemsWithPrices(
+                shoppingCartState.inCart,
+                shoppingCartState.products,
+              ),
             ),
           )}
         </p>
