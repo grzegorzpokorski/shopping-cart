@@ -3,7 +3,6 @@ import userEvent from "@testing-library/user-event";
 import { ProductListItem } from "./ProductListItem";
 import { AppProviders } from "../../../providers/AppProviders";
 import { ProductType } from "../../../providers/ShoppingCartProvider";
-import { formatCurrency } from "../../../utils/formatCurrency";
 
 const product = {
   id: 0,
