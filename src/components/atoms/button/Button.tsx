@@ -43,6 +43,7 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <button
+      type="button"
       className={cn(
         variants[variant],
         "text-center disabled:cursor-not-allowed transition-colors rounded",
