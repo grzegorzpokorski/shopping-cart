@@ -1,12 +1,12 @@
-import React, { ReactNode } from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import cn from "classnames";
 
 type ButtonProps = {
-  children: ReactNode;
-  disabled?: boolean;
   variant?: ButtonVariants;
-  onClick?: () => void;
-};
+  "aria-label"?: string;
+  "aria-expanded"?: boolean;
+  "aria-controls"?: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 type ButtonVariants =
   | "default"
@@ -40,9 +40,11 @@ export const Button = ({
   disabled,
   variant = "default",
   onClick,
+  ...props
 }: ButtonProps) => {
   return (
     <button
+      {...props}
       type="button"
       className={cn(
         variants[variant],

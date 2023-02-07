@@ -21,6 +21,8 @@ export const CartTrigger = ({ cartOpen, toggleCart }: CartTriggerType) => {
       aria-label={`${
         cartOpen ? ariaLabelForOpened : ariaLabelForClosed
       } koszyk`}
+      aria-expanded={cartOpen}
+      aria-controls="cart"
       onClick={toggleCart}
     >
       {cartOpen ? (
