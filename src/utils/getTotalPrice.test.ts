@@ -19,8 +19,6 @@ const items = [
   },
 ];
 
-console.log(getTotalPrice(items));
-
 describe("getTotalPrice()", () => {
   it("should return total price by given items", () => {
     expect(getTotalPrice(items)).toEqual(929.7);
