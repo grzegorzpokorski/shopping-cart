@@ -43,3 +43,5 @@ export const products = [
 export const product = products[0];
 
 export const unavailableProduct = { ...product, availableAmount: 0 };
+
+export const categories = ["mysz", "klawiatura"];
