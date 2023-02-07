@@ -1,4 +1,3 @@
-import { Result } from "postcss";
 import { getCategories } from "./getCategories";
 
 const products = [
