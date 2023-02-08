@@ -10,6 +10,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:react/recommended",
+    "plugin:cypress/recommended",
     "plugin:react-hooks/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
