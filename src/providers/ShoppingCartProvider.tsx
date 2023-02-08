@@ -29,12 +29,13 @@ export type ShoppingCartStateType = {
   orders: OrderType[];
   category: string;
 };
-type ShoppingCartContextType = {
+export type ShoppingCartContextType = {
   shoppingCartState: ShoppingCartStateType;
   dispatch: (action: ShoppingCartReducerActions) => void;
 };
 
-const ShoppingCartContext = createContext<ShoppingCartContextType | null>(null);
+export const ShoppingCartContext =
+  createContext<ShoppingCartContextType | null>(null);
 
 export const useShoppingCartContext = () => {
   const ctx = useContext(ShoppingCartContext);
