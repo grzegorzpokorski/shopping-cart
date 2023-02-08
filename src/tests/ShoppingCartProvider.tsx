@@ -1,4 +1,4 @@
-import { render, RenderOptions } from "@testing-library/react";
+import { render, RenderOptions, RenderResult } from "@testing-library/react";
 import { ReactElement, ReactNode } from "react";
 import {
   ShoppingCartContext,
@@ -35,7 +35,7 @@ const DummyShoppingCartProvider = ({
 export const renderWithShoppingCartContext = (
   ui: ReactElement,
   options?: RenderOptions & { contextValue: ShoppingCartContextType },
-) => {
+) =>
   render(ui, {
     wrapper: (props) => (
       <DummyShoppingCartProvider
@@ -45,4 +45,3 @@ export const renderWithShoppingCartContext = (
     ),
     ...options,
   });
-};
