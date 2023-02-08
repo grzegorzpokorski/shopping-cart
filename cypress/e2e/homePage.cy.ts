@@ -4,6 +4,10 @@ describe("Home page tests", () => {
     cy.clearAllLocalStorage();
   });
 
+  it("should contain appropriate title", () => {
+    cy.contains("Wszystkie przedmioty");
+  });
+
   it("available items are able to add to cart", () => {
     cy.get('button:contains("Dodaj do koszyka")').each(($button) => {
       cy.wrap($button).click();
