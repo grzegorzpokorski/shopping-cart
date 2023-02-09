@@ -1,4 +1,4 @@
-describe("cart tests", () => {
+describe("shopping cart tests", () => {
   const addProductToCartByName = (productName: string) => {
     cy.get(`#products > li:contains('${productName}')`)
       .find('button:contains("Dodaj do koszyka")')
