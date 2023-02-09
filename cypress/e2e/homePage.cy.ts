@@ -26,12 +26,16 @@ describe("Home page tests", () => {
   });
 
   it("after adding item to cart it should apear in cart list", () => {
-    cy.get("button").contains("Dodaj do koszyka").click();
+    cy.get("button:contains('Dodaj do koszyka')").each(($button) => {
+      cy.wrap($button).click();
+    });
+    cy.get("button:contains('Zobacz w koszyku')").should("have.length", 9);
     cy.get('button[aria-label="Otwórz koszyk"').click();
     cy.get("#cart")
       .should("be.visible")
       .should("contain", "Zawartość koszyka")
       .should("contain", "Złóż zamówienie");
+    cy.get("#cart > ul > li").should("have.length", 9);
   });
 
   it("if there is no products added to the cart, cart should be empty", () => {
