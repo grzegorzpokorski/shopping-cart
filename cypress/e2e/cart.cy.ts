@@ -8,17 +8,23 @@ describe("cart tests", () => {
   };
 
   it("after add products to cart it should stay there when switch between pages", () => {
+    const checkCart = () => {
+      cy.get('button[aria-label="Otwórz koszyk"').click();
+      cy.get("#cart")
+        .should("be.visible")
+        .find(`li:contains("${productName}")`)
+        .should("have.length", 1);
+    };
+
     cy.clearLocalStorage();
     cy.visit("/");
-
     const productName = "Logitech M330 silent";
     addProductToCartByName(productName);
 
-    cy.get('button[aria-label="Otwórz koszyk"').click();
-    cy.get("#cart")
-      .should("be.visible")
-      .find(`li:contains("${productName}")`)
-      .should("have.length", 1);
+    ["/ulubione", "/historia"].forEach((page) => {
+      cy.visit(page);
+      checkCart();
+    });
   });
 
   it("it should be able to remove product from cart", () => {
