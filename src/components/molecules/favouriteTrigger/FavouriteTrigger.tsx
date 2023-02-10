@@ -19,10 +19,11 @@ export const FavouriteTrigger = ({
         aria-pressed={checked}
       >
         {checked ? (
-          <>
-            <FaHeart />
+          <div className="relative">
+            <FaHeart className="absolute" />
+            <FaHeart className="absolute animate-ping-once" />
             <span className="sr-only">odznacz jako ulubiony</span>
-          </>
+          </div>
         ) : (
           <>
             <FaRegHeart />

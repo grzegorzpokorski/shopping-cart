@@ -13,6 +13,9 @@ module.exports = {
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
       },
+      animation: {
+        "ping-once": "ping .8s cubic-bezier(0, 0, 0.2, 1)",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],
