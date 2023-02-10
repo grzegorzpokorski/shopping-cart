@@ -1,4 +1,5 @@
 import React from "react";
+import { FaTrash } from "react-icons/fa";
 import {
   ProductInCartType,
   useShoppingCartContext,
@@ -29,15 +30,23 @@ export const Order = ({ id, items }: OrderProps) => {
         </p>
         <Button
           variant="red"
-          onClick={() =>
-            dispatch({
-              type: "cancel_order",
-              orderId: id,
-              items: items,
-            })
-          }
+          onClick={() => {
+            const confirmation = confirm(
+              "Czy napewno chcesz anulować zamówienie?",
+            );
+
+            if (confirmation) {
+              dispatch({
+                type: "cancel_order",
+                orderId: id,
+                items: items,
+              });
+            }
+          }}
+          aria-label="anuluj zamówienie"
         >
-          anuluj zamówienie
+          anuluj <span className="hidden md:inline">zamówienie</span>
+          <FaTrash />
         </Button>
       </div>
       <ul className="flex flex-col divide-y divide-gray-200 -my-2">
