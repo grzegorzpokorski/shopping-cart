@@ -48,7 +48,7 @@ export const Button = ({
       type="button"
       className={cn(
         variants[variant],
-        "text-center disabled:cursor-not-allowed transition-colors rounded",
+        "text-center disabled:cursor-not-allowed transition-colors rounded flex flex-row items-center justify-center gap-1.5",
       )}
       disabled={disabled}
       onClick={onClick}
