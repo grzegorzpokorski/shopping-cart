@@ -11,8 +11,7 @@ export const useLocalStorage = <T>(
 
     if (jsonValue) {
       const { success } = shema.safeParse(JSON.parse(jsonValue));
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-      if (success) return JSON.parse(jsonValue);
+      if (success) return JSON.parse(jsonValue) as T;
     }
 
     if (typeof defaultValue === "function") {
