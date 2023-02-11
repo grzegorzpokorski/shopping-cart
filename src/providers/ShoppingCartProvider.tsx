@@ -1,3 +1,4 @@
+import { z } from "zod";
 import React, {
   createContext,
   ReactNode,
@@ -48,6 +49,54 @@ export const ShoppingCartProvider = ({
 }: {
   readonly children: ReactNode;
 }) => {
+  const shoppingCartStateShema = z
+    .object({
+      products: z
+        .array(
+          z.object({
+            id: z.number().nonnegative().int(),
+            name: z.string(),
+            price: z.number().positive(),
+            category: z.string(),
+            image: z.object({
+              url: z
+                .string()
+                .regex(/^\/{1}(images)\/{1}.+[.]{1}(jpg|png|webp|gif|jpeg)$/),
+              height: z.number().int().positive(),
+              width: z.number().int().positive(),
+              alt: z.string(),
+            }),
+            availableAmount: z.number().int().nonnegative(),
+          }),
+        )
+        .nonempty(),
+      inCart: z.array(
+        z.object({
+          id: z.number().nonnegative().int(),
+          price: z.number().positive(),
+          qty: z.number().positive().int(),
+        }),
+      ),
+      sortBy: z.enum(["DEFAULT", "PRICE_DESC", "PRICE_ASC"]),
+      favourite: z.array(z.number().nonnegative().int()),
+      orders: z.array(
+        z.object({
+          id: z.number().nonnegative().int(),
+          items: z
+            .array(
+              z.object({
+                id: z.number().nonnegative().int(),
+                price: z.number().positive(),
+                qty: z.number().positive().int(),
+              }),
+            )
+            .nonempty(),
+        }),
+      ),
+      category: z.enum(["klawiatura", "mysz", ""]),
+    })
+    .required();
+
   const shoppingCartInitialState: ShoppingCartStateType = {
     products: data,
     inCart: [],
@@ -60,6 +109,7 @@ export const ShoppingCartProvider = ({
   const [initState, setInitState] = useLocalStorage(
     "app:state",
     shoppingCartInitialState,
+    shoppingCartStateShema,
   );
 
   const [shoppingCartState, shoppingCartDispatch] = useReducer(

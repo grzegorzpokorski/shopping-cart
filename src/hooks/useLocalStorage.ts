@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
+import { ZodType } from "zod";
 
 export const useLocalStorage = <T>(
   key: string,
   defaultValue: T | (() => T),
+  shema: ZodType,
 ) => {
   const [value, setValue] = useState<T>(() => {
     const jsonValue = localStorage.getItem(key);
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    if (jsonValue != null) return JSON.parse(jsonValue);
+
+    if (jsonValue) {
+      const { success } = shema.safeParse(JSON.parse(jsonValue));
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      if (success) return JSON.parse(jsonValue);
+    }
 
     if (typeof defaultValue === "function") {
       return (defaultValue as () => T)();
@@ -20,5 +26,5 @@ export const useLocalStorage = <T>(
     localStorage.setItem(key, JSON.stringify(value));
   }, [key, value]);
 
-  return [value, setValue] as [typeof value, typeof setValue];
+  return [value, setValue] as const;
 };
