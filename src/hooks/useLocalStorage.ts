@@ -3,22 +3,17 @@ import { ZodType } from "zod";
 
 export const useLocalStorage = <T>(
   key: string,
-  defaultValue: T | (() => T),
-  shema: ZodType,
+  defaultValue: T,
+  shema: ZodType<T>,
 ) => {
   const [value, setValue] = useState<T>(() => {
     const jsonValue = localStorage.getItem(key);
 
     if (jsonValue) {
-      const { success } = shema.safeParse(JSON.parse(jsonValue));
-      if (success) return JSON.parse(jsonValue) as T;
+      const validate = shema.safeParse(JSON.parse(jsonValue));
+      if (validate.success) return validate.data;
     }
-
-    if (typeof defaultValue === "function") {
-      return (defaultValue as () => T)();
-    } else {
-      return defaultValue;
-    }
+    return defaultValue;
   });
 
   useEffect(() => {

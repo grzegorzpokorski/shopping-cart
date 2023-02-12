@@ -106,7 +106,7 @@ export const ShoppingCartProvider = ({
     category: "",
   };
 
-  const [initState, setInitState] = useLocalStorage(
+  const [initState, setInitState] = useLocalStorage<ShoppingCartStateType>(
     "app:state",
     shoppingCartInitialState,
     shoppingCartStateShema,
