@@ -9,10 +9,12 @@ import { Logo } from "../../molecules/logo/Logo";
 import { MainMenu } from "../../molecules/mainMenu/MainMenu";
 import { FaHistory, FaRegHeart } from "react-icons/fa";
 import { useUIContext } from "../../../providers/UIProvider";
+import { useTranslation } from "react-i18next";
 
 export const Navbar = () => {
   const [isHome, setIsHome] = useState(false);
   const { pathname } = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (pathname === "/") {
@@ -35,12 +37,12 @@ export const Navbar = () => {
           <MainMenu
             items={[
               {
-                label: "Ulubione",
+                label: t("menu.favourite"),
                 href: "/ulubione",
                 icon: <FaRegHeart />,
               },
               {
-                label: "Historia zakupów",
+                label: t("menu.history"),
                 href: "/historia",
                 icon: <FaHistory />,
               },

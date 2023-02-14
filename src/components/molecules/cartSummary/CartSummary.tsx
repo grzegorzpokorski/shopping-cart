@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import {
   ProductInCartType,
   ProductType,
@@ -11,6 +12,7 @@ import { getTotalPrice } from "../../../utils/getTotalPrice";
 import { Button } from "../../atoms/button/Button";
 
 export const CartSummary = () => {
+  const { t } = useTranslation();
   const { shoppingCartState, dispatch } = useShoppingCartContext();
   const { toggleCart } = useUIContext();
 
@@ -34,7 +36,7 @@ export const CartSummary = () => {
   return (
     <div className="flex flex-col justify-end border-t border-zinc-200 py-6">
       <div className="flex justify-between text-base">
-        <p>Razem do zapłaty:</p>
+        <p>{t("total")}:</p>
         <p>
           {formatCurrency(
             getTotalPrice(
@@ -64,14 +66,14 @@ export const CartSummary = () => {
             toggleCart();
           }}
         >
-          Złóż zamówienie
+          {t("button.place_order")}
         </Button>
       </div>
       <div className="mt-6 flex justify-center text-center text-sm">
         <p>
           lub{" "}
           <Button variant="indigo_link" onClick={toggleCart}>
-            Kontynuuj zakupy
+            {t("button.continue_shopping")}
             <span aria-hidden="true"> &rarr;</span>
           </Button>
         </p>

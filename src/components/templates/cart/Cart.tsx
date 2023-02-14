@@ -5,6 +5,7 @@ import { CartList } from "../../organisms/cartList/CartList";
 import { EmptyCart } from "../../molecules/emptyCart/EmptyCart";
 import { CartSummary } from "../../molecules/cartSummary/CartSummary";
 import { useUIContext } from "../../../providers/UIProvider";
+import { t } from "i18next";
 
 export const Cart = () => {
   const { shoppingCartState } = useShoppingCartContext();
@@ -29,8 +30,8 @@ export const Cart = () => {
     >
       <h2 className="text-lg font-bold text-center mb-2 border-b-2 pb-6 md:pb-8">
         {shoppingCartState.inCart.length > 0
-          ? "Zawartość koszyka"
-          : "Twoj koszyk jest pusty"}
+          ? t("cart.title.not_empty")
+          : t("cart.title.empty")}
       </h2>
       {shoppingCartState.inCart.length > 0 ? (
         <>

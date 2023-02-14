@@ -4,12 +4,15 @@ import { ProductListItem } from "./ProductListItem";
 import { AppProviders } from "../../../providers/AppProviders";
 import { ProductType } from "../../../providers/ShoppingCartProvider";
 import { product, unavailableProduct } from "../../../tests/utils";
+import { InternationalizationProvider } from "../../../tests/InternationalizationProvider";
 
 describe("<ProductListItem>", () => {
   const renderItem = (productData: ProductType) => {
     render(
       <AppProviders>
-        <ProductListItem {...productData} />
+        <InternationalizationProvider>
+          <ProductListItem {...productData} />
+        </InternationalizationProvider>
       </AppProviders>,
     );
   };

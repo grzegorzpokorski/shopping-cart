@@ -38,7 +38,7 @@ describe("shopping cart tests", () => {
     cy.get("#cart")
       .should("be.visible")
       .find(`li:contains("${productName}")`)
-      .find('button:contains("usuń z koszyka")')
+      .find('button:contains("Usuń z koszyka")')
       .click();
 
     cy.get("#cart")

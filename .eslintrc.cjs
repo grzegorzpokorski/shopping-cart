@@ -27,5 +27,6 @@ module.exports = {
   ignorePatterns: ["build/", "dist/", "node_modules/", "*.js", "*.jsx"],
   rules: {
     "react/react-in-jsx-scope": "off",
+    "import/no-named-as-default-member": "off",
   },
 };

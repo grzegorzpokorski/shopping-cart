@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { FaShoppingBasket, FaPlus } from "react-icons/fa";
 import { useShoppingCartContext } from "../../../providers/ShoppingCartProvider";
 import { getShoppingCartProductsCount } from "../../../utils/getShoppingCartProductsCount";
@@ -10,8 +11,7 @@ type CartTriggerType = {
 };
 
 export const CartTrigger = ({ cartOpen, toggleCart }: CartTriggerType) => {
-  const ariaLabelForOpened = "Zamknij";
-  const ariaLabelForClosed = "Otwórz";
+  const { t } = useTranslation();
 
   const { shoppingCartState } = useShoppingCartContext();
 
@@ -19,8 +19,8 @@ export const CartTrigger = ({ cartOpen, toggleCart }: CartTriggerType) => {
     <Button
       variant="cart_trigger"
       aria-label={`${
-        cartOpen ? ariaLabelForOpened : ariaLabelForClosed
-      } koszyk`}
+        cartOpen ? t("cart.trigger.close") : t("cart.trigger.open")
+      }`}
       aria-expanded={cartOpen}
       aria-controls="cart"
       onClick={toggleCart}

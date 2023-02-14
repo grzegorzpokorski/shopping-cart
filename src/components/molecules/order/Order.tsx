@@ -1,4 +1,6 @@
+import i18next from "i18next";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { FaTrash } from "react-icons/fa";
 import {
   ProductInCartType,
@@ -14,13 +16,14 @@ type OrderProps = {
 };
 
 export const Order = ({ id, items }: OrderProps) => {
+  const { t } = useTranslation();
   const { dispatch } = useShoppingCartContext();
 
   return (
     <li className="flex flex-col gap-4 justify-between border-2 border-zinc-200 bg-white p-4 rounded">
       <div className="flex flex-wrap gap-1.5 justify-between items-center border-b-2 pb-3 text-sm">
         <p>
-          {new Date(id).toLocaleDateString("pl", {
+          {new Date(id).toLocaleDateString(i18next.language, {
             year: "numeric",
             month: "short",
             day: "numeric",
@@ -31,9 +34,7 @@ export const Order = ({ id, items }: OrderProps) => {
         <Button
           variant="red"
           onClick={() => {
-            const confirmation = confirm(
-              "Czy napewno chcesz anulować zamówienie?",
-            );
+            const confirmation = confirm(`${t("cancel_order_confirmation")}`);
 
             if (confirmation) {
               dispatch({
@@ -43,9 +44,9 @@ export const Order = ({ id, items }: OrderProps) => {
               });
             }
           }}
-          aria-label="anuluj zamówienie"
+          aria-label={`${t("cancel_order")}`}
         >
-          anuluj <span className="hidden md:inline">zamówienie</span>
+          {t("button.cancel_order")}
           <FaTrash />
         </Button>
       </div>
@@ -55,7 +56,7 @@ export const Order = ({ id, items }: OrderProps) => {
         ))}
       </ul>
       <div className="flex justify-between border-t-2 pt-3 font-bold text-sm">
-        <p>Wartość zamówienia</p>
+        <p>{t("order_value")}</p>
         <p>{formatCurrency(getTotalPrice(items))}</p>
       </div>
     </li>

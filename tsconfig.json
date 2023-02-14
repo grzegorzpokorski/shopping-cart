@@ -17,6 +17,12 @@
     "jsx": "react-jsx",
     "types": ["vitest/globals"]
   },
-  "include": ["src", "vitest.config.ts", "cypress", "cypress.config.ts"],
+  "include": [
+    "src",
+    "vitest.config.ts",
+    "cypress",
+    "cypress.config.ts",
+    "i18next.config.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

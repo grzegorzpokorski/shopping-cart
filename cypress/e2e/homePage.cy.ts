@@ -43,7 +43,7 @@ describe("Home page tests", () => {
     cy.get("#cart")
       .should("be.visible")
       .should("contain", "Twoj koszyk jest pusty")
-      .should("contain", "Kontynuj zakupy");
+      .should("contain", "Kontynuuj zakupy");
   });
 
   it("if product is not available, there should not be able to add it to the cart", () => {

@@ -7,6 +7,7 @@ import {
 import { formatCurrency } from "../../../utils/formatCurrency";
 import { Button } from "../../atoms/button/Button";
 import { FaMinus, FaPlus, FaTrashAlt } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 type CartListItemProps = ProductType & Pick<ProductInCartType, "qty">;
 
@@ -20,6 +21,7 @@ export const CartListItem = ({
   qty,
 }: CartListItemProps) => {
   const { dispatch } = useShoppingCartContext();
+  const { t } = useTranslation();
 
   return (
     <li className="flex flex-col gap-4 py-6">
@@ -48,7 +50,7 @@ export const CartListItem = ({
             })
           }
         >
-          <span className="sr-only">usuń z koszyka</span>
+          <span className="sr-only">{t("button.remove_from_basket")}</span>
           <FaTrashAlt aria-hidden="true" />
         </Button>
       </div>
@@ -64,12 +66,12 @@ export const CartListItem = ({
               })
             }
           >
-            <span className="sr-only">zmniejsz</span>
+            <span className="sr-only">{t("button.decrease")}</span>
             <FaMinus className="text-center" />
           </Button>
           <span className="px-2 text-sm">
-            {qty} z {availableAmount}
-            <span className="hidden md:inline"> dostępnych</span>
+            {qty} {t("from")} {availableAmount}
+            <span className="hidden md:inline"> {t("available")}</span>
           </span>
           <Button
             variant="quantity_button"
@@ -81,14 +83,14 @@ export const CartListItem = ({
               })
             }
           >
-            <span className="sr-only">zwiększ</span>
+            <span className="sr-only">{t("button.increase")}</span>
             <FaPlus className="text-center block" />
           </Button>
         </div>
         <p className="text-sm">
           <span className="font-bold">{formatCurrency(price * qty)}</span>
           <br />
-          {qty > 1 ? `za sztukę ${formatCurrency(price)}` : null}
+          {qty > 1 ? `${t("per_item")} ${formatCurrency(price)}` : null}
         </p>
       </div>
     </li>

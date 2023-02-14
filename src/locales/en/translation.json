@@ -1,0 +1,55 @@
+{
+  "menu": {
+    "favourite": "Favourite",
+    "history": "Purchase history"
+  },
+  "title": {
+    "home": "All items",
+    "favourite": "Favourite items",
+    "history": "Purchase history"
+  },
+  "button": {
+    "out_of_stock": "Out of stock",
+    "add_to_basket": "Add to basket",
+    "check_in_basket": "Check in basket",
+    "place_order": "Place order",
+    "remove_from_basket": "Remove from basket",
+    "increase": "increase",
+    "decrease": "decrease",
+    "continue_shopping": "Continue shopping",
+    "cancel_order": "cancel order",
+    "add_to_favourite": "mark as favourite",
+    "remove_from_favourite": "unmark as favourite"
+  },
+  "cart": {
+    "title": {
+      "empty": "Your basket is empty",
+      "not_empty": "Basket contents"
+    },
+    "trigger": {
+      "open": "Open basket",
+      "close": "Close basket"
+    }
+  },
+  "link": {
+    "go_to_the_product_list": "Go to the product list."
+  },
+  "info": {
+    "favourite": "You have no favorite products.",
+    "history": "You have no placed orders",
+    "empty_cart": "Add items to the cart and buy them quickly and conveniently."
+  },
+  "select": {
+    "language": "language",
+    "category": "category",
+    "sorting": "sorting"
+  },
+  "from": "from",
+  "available": "available",
+  "per_item": "per item",
+  "total": "Total",
+  "order_value": "Order value",
+  "cancel_order_confirmation": "Are you sure you want to cancel this order?",
+  "or": "or",
+  "cancel_order": "cancel order"
+}

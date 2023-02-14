@@ -1,0 +1,55 @@
+{
+  "menu": {
+    "favourite": "Ulubione",
+    "history": "Historia zakupów"
+  },
+  "title": {
+    "home": "Wszystkie przedmioty",
+    "favourite": "Ulubione przedmioty",
+    "history": "Historia zakupów"
+  },
+  "button": {
+    "out_of_stock": "Brak towaru",
+    "add_to_basket": "Dodaj do koszyka",
+    "check_in_basket": "Zobacz w koszyku",
+    "place_order": "Złóż zamówienie",
+    "remove_from_basket": "Usuń z koszyka",
+    "increase": "zwiększ",
+    "decrease": "zmniejsz",
+    "continue_shopping": "Kontynuuj zakupy",
+    "cancel_order": "anuluj zamówienie",
+    "add_to_favourite": "oznacz jako ulubiony",
+    "remove_from_favourite": "odznacz jako ulubiony"
+  },
+  "cart": {
+    "title": {
+      "empty": "Twoj koszyk jest pusty",
+      "not_empty": "Zawartość koszyka"
+    },
+    "trigger": {
+      "open": "Otwórz koszyk",
+      "close": "Zamknij koszyk"
+    }
+  },
+  "link": {
+    "go_to_the_product_list": "Przejdź do listy produktów."
+  },
+  "info": {
+    "favourite": "Nie masz ulubionych produktów.",
+    "history": "Nie masz złożonych zamówien.",
+    "empty_cart": "Dodaj do koszyka przedmioty i kup je szybko i wygodnie."
+  },
+  "select": {
+    "language": "zmień język",
+    "category": "kategoria",
+    "sorting": "sortowanie"
+  },
+  "from": "z",
+  "available": "dostępnych",
+  "per_item": "za sztukę",
+  "total": "Razem do zapłaty",
+  "order_value": "Wartość zamówienia",
+  "cancel_order_confirmation": "Czy na pewno chcesz anulować zamówienie?",
+  "or": "lub",
+  "cancel_order": "anuluj zamówienie"
+}

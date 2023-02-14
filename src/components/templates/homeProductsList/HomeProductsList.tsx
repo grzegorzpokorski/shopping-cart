@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import {
   SortByType,
   useShoppingCartContext,
@@ -18,13 +19,15 @@ export const HomeProductsList = () => {
     shoppingCartState.category,
     categories,
   );
+  const { t } = useTranslation();
+
   return (
     <>
       <div className="flex flex-wrap items-center justify-between">
-        <Title as="h2">Wszystkie przedmioty</Title>
+        <Title as="h2">{t("title.home")}</Title>
         <div className="flex flex-wrap gap-3 mb-6">
           <SelectInput
-            label="kategoria"
+            label={t("select.category")}
             name="kategoria"
             currentValue={shoppingCartState.category}
             options={[
@@ -41,7 +44,7 @@ export const HomeProductsList = () => {
             }
           />
           <SelectInput
-            label="sorotwanie"
+            label={t("select.sorting")}
             name="sortowanie"
             currentValue={shoppingCartState.sortBy}
             options={Array<{ label: string; value: SortByType }>(

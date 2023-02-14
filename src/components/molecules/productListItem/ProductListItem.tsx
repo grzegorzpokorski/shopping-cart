@@ -8,6 +8,7 @@ import {
 } from "../../../providers/ShoppingCartProvider";
 import { FavouriteTrigger } from "../favouriteTrigger/FavouriteTrigger";
 import { useUIContext } from "../../../providers/UIProvider";
+import { useTranslation } from "react-i18next";
 
 export const ProductListItem = ({
   id,
@@ -19,6 +20,7 @@ export const ProductListItem = ({
 }: ProductType) => {
   const { shoppingCartState, dispatch } = useShoppingCartContext();
   const { toggleCart } = useUIContext();
+  const { t } = useTranslation();
 
   const ProductIsInCart = shoppingCartState.inCart
     .map((p) => p.id)
@@ -48,7 +50,7 @@ export const ProductListItem = ({
           <p>{formatCurrency(price)}</p>
           {ProductIsInCart ? (
             <Button onClick={toggleCart} variant="indigo">
-              Zobacz w koszyku
+              {t("button.check_in_basket")}
             </Button>
           ) : (
             <Button
@@ -61,7 +63,9 @@ export const ProductListItem = ({
                 })
               }
             >
-              {availableAmount ? "Dodaj do koszyka" : "Brak towaru"}
+              {availableAmount
+                ? t("button.add_to_basket")
+                : t("button.out_of_stock")}
             </Button>
           )}
         </div>
