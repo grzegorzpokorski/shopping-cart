@@ -4,22 +4,20 @@ import {
   SortByType,
   useShoppingCartContext,
 } from "../../../providers/ShoppingCartProvider";
-import { getCategories } from "../../../utils/getCategories";
-import { getProductsByCategory } from "../../../utils/getProductsByCategory";
-import { getSortedProducts } from "../../../utils/getSortedProducts";
 import { SelectInput } from "../../atoms/selectInput/SelectInput";
 import { Title } from "../../atoms/title/Title";
 import { ProductsList } from "../../organisms/productsList/ProductsList";
+import { useHomeProductsList } from "./useHomeProductsList";
 
 export const HomeProductsList = () => {
   const { shoppingCartState, dispatch } = useShoppingCartContext();
-  const categories = getCategories(shoppingCartState.products);
-  const productsFromCategory = getProductsByCategory(
-    getSortedProducts(shoppingCartState.products, shoppingCartState.sortBy),
-    shoppingCartState.category,
-    categories,
-  );
   const { t } = useTranslation();
+
+  const { products, categories } = useHomeProductsList(
+    shoppingCartState.products,
+    shoppingCartState.category,
+    shoppingCartState.sortBy,
+  );
 
   return (
     <>
@@ -70,13 +68,8 @@ export const HomeProductsList = () => {
           />
         </div>
       </div>
-      <ProductsList
-        products={
-          productsFromCategory.length > 0
-            ? productsFromCategory
-            : shoppingCartState.products
-        }
-      />
+      <ProductsList products={products} />
+      {}
     </>
   );
 };

@@ -7,6 +7,6 @@ export const getSortedProducts = (products: ProductType[], by: SortByType) => {
     case "PRICE_DESC":
       return products.sort((a, b) => (a.price <= b.price ? 1 : -1));
     default:
-      return products;
+      return products.sort((a, b) => (a.id >= b.id ? 1 : -1));
   }
 };
