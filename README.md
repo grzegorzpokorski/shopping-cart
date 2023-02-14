@@ -13,6 +13,7 @@ Learn how to use useReducer hook in action. Test how it is when components are o
 - Vite
 - Vitest + React Testing Library
 - Cypress
+- i18next
 
 ## ⚙️ How to run this app locally on my computer?
 
