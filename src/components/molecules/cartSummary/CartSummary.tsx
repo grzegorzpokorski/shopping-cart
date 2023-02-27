@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { toast } from "sonner";
 import {
   ProductInCartType,
   ProductType,
@@ -64,6 +65,7 @@ export const CartSummary = () => {
               order: shoppingCartState.inCart,
             });
             toggleCart();
+            toast.success(t("placed_order_info"));
           }}
         >
           {t("button.place_order")}

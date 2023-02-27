@@ -50,6 +50,8 @@
   "total": "Razem do zapłaty",
   "order_value": "Wartość zamówienia",
   "cancel_order_confirmation": "Czy na pewno chcesz anulować zamówienie?",
+  "placed_order_info": "Twoje zamówienie zostało złożone.",
+  "cancel_order_info": "Twoje zamówienie zostało anulowane.",
   "or": "lub",
   "cancel_order": "anuluj zamówienie"
 }

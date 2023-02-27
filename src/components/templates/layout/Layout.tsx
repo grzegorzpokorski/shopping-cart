@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import { Footer } from "../../organisms/footer/Footer";
 import { Link } from "../../atoms/link/Link";
 import { SiteHeader } from "../siteHeader/SiteHeader";
+import { Toaster } from "sonner";
 
 type LayoutProps = {
   children: ReactNode;
@@ -23,6 +24,7 @@ export const Layout = ({ children }: LayoutProps) => {
           </p>
         }
       />
+      <Toaster />
     </>
   );
 };

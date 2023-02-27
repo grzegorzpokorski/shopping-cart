@@ -50,6 +50,8 @@
   "total": "Total",
   "order_value": "Order value",
   "cancel_order_confirmation": "Are you sure you want to cancel this order?",
+  "placed_order_info": "Your order has been placed.",
+  "cancel_order_info": "Your order has been canceled.",
   "or": "or",
   "cancel_order": "cancel order"
 }

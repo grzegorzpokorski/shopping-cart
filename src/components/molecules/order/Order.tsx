@@ -1,7 +1,7 @@
 import i18next from "i18next";
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { FaTrash } from "react-icons/fa";
+import { toast } from "sonner";
 import {
   ProductInCartType,
   useShoppingCartContext,
@@ -42,6 +42,7 @@ export const Order = ({ id, items }: OrderProps) => {
                 orderId: id,
                 items: items,
               });
+              toast.success(t("cancel_order_info"));
             }
           }}
           aria-label={`${t("cancel_order")}`}
