@@ -1,4 +1,6 @@
 import "../src/styles/style.scss";
+import "./../i18next.config";
+
 import type { Preview } from "@storybook/react";
 
 const preview: Preview = {

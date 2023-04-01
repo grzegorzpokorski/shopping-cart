@@ -1,4 +1,3 @@
-import React from "react";
 import { siteUrl } from "../../../utils/getSiteUrl";
 import { formatCurrency } from "../../../utils/formatCurrency";
 import { Button } from "../../atoms/button/Button";
