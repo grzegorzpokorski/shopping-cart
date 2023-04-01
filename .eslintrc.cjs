@@ -15,6 +15,7 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:import/typescript",
     "prettier",
+    "plugin:storybook/recommended",
   ],
   parserOptions: {
     project: ["./tsconfig.json"],
